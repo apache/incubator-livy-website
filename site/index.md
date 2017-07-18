@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Home
-tagline: Apache Project !
+title: Apache Livy
+tagline: Apache Livy
 ---
 <!--
 {% comment %}
@@ -24,14 +24,34 @@ limitations under the License.
 
 {% include JB/setup %}
 
-## Apache SystemML
+#### *Submit Jobs from Anywhere*
+> Livy enables programmatic, fault-tolerant, multi-tenant submission of Spark jobs from web/mobile apps (no Spark
+client needed). So, multiple users can interact with your Spark cluster concurrently and reliably.
 
-SystemML provides declarative large-scale machine learning (ML) that aims at flexible specification 
-of ML algorithms and automatic generation of hybrid runtime plans ranging from single node, 
-in-memory computations, to distributed computations on Apache Hadoop and  Apache Spark. 
-ML algorithms are expressed in a R or Python syntax, that includes linear algebra primitives, statistical functions, 
-and ML-specific constructs. This high-level language significantly increases the productivity of data scientists 
-as it provides (1) full flexibility in expressing custom analytics, and (2) data independence from the underlying 
-input formats and physical data representations. Automatic optimization according to data characteristics such as 
-distribution on the disk file system, and sparsity as well as processing characteristics in the distributed environment 
-like number of nodes, CPU, memory per node, ensures both efficiency and scalability. 
+#### *Use Interactive Scala or Python*
+> Livy speaks either Scala or Python, so clients can communicate with your Spark cluster via either language remotely.
+Also, batch job submissions can be done in Scala, Java, or Python.
+
+#### *No Code Changes Needed*
+> Don't worry, no changes to existing programs are needed to use Livy. Just build Livy with Maven, deploy the
+configuration file to your Spark cluster, and you're off! Check out [Get Started]({{ site.baseurl }}/get-started) to
+get going.
+
+### What is Apache Livy?
+
+Apache Livy is a service that enables easy interaction with a Spark cluster over a REST interface. It enables easy
+submission of Spark jobs or snippets of Spark code, synchronous or asynchronous result retrieval, as well as Spark
+Context management, all via a simple REST interface or a RPC client library. Apache Livy also simplifies the
+interaction between Spark from application servers, thus enabling the use of Spark for interactive web/mobile
+applications. Additional features include:
+
+* Have long running Spark Contexts that can be used for multiple Spark jobs, by multiple clients
+* Share cached RDDs or Dataframes across multiple jobs and clients
+* Multiple Spark Contexts can be managed simultaneously, and the Spark Contexts run on the cluster (YARN/Mesos) instead
+of the Livy Server, for good fault tolerance and concurrency
+* Jobs can be submitted as precompiled jars, snippets of code or via java/scala client API
+* Ensure security via secure authenticated communication
+
+To learn more, [watch this tech session video](https://youtu.be/C_3iEf_KNv8) from Spark Summit West 2016.
+
+<img src="/assets/images/livy-architecture.png" alt="Architecture" style="width: 90%; display: block; margin: 0 auto;"/>

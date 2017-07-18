@@ -1,5 +1,4 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
-@import url(//fonts.googleapis.com/css?family=Patua+One);
 
 body {
   padding-top: 50px;
@@ -7,7 +6,7 @@ body {
 }
 
 .jumbotron {
-    background-color: #3071a9;
+    background-color: #339999;
 }
 
 .navbar-brand {
@@ -17,29 +16,29 @@ body {
 }
 
 .navbar {
- background-color:#3071a9;
+ background-color:#339999;
  border-bottom:0px;
  height: 50px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
  color: #ffffff;
- background-color:#3071a9;
+ background-color:#339999;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, 
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
-  background-color: #2C6094;
+  background-color: #336666;
 }
 .navbar-inverse .navbar-nav > li > a.active:hover, 
 .navbar-inverse .navbar-nav > li > a.active:focus {
   text-decoration: none;
-  background-color: #265380;
+  background-color: #336666;
 }
 
 .navbar-inverse .navbar-nav > li > a.active {
-  background-color: #265380;
+  background-color: #336666;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -54,8 +53,8 @@ body {
 
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #265380;
-  background-color: #3071a9;
+  border-color: #336666;
+  background-color: #339999;
 }
 
 @media (max-width: 768px) {
@@ -73,20 +72,35 @@ body {
 
 .bigFingerButton {
     margin-right: 10px;
+    border-color: #ffffff;
+    background-color: #339999;
+}
+
+.bigFingerButton:hover, .bigFingerButton:focus {
+    border-color: #ffffff;
+    background-color: #336666;
 }
 
 .navbar-inverse .navbar-toggle {
-  border-color: #265380;
+  border-color: #336666;
 }
 
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-  border-color: #265380;
-  background-color: #265380;
+  border-color: #336666;
+  background-color: #336666;
 }
 
 .navbar-inverse .navbar-toggle:focus {
   outline-width: 0px;
+}
+
+blockquote {
+  border: 0;
+}
+
+.navbar :focus {
+  outline-width: 0;
 }
 
 
@@ -292,17 +306,9 @@ body {
   border: 1px solid #4c964d;
   color: #FFF; }
 
-
-.jumbotron h1 {
-  font-family: 'Patua One', cursive; }
-
 .jumbotron small {
     font-size: 60%;
     color: #FFF;}
-
-.navbar-brand {
-    font-family: 'Patua One', cursive;
-}
 
 .navbar-brand small {
     font-size: 60%;
@@ -311,7 +317,7 @@ body {
 .navbar-collapse.collapse {
     max-height: 50px;}
 
-#apache .caret {
+.nav .caret, .nav a:hover .caret, .nav a:focus .caret {
     margin-left: 4px;
     border-top-color: #FFF;
 }
@@ -320,7 +326,7 @@ body {
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   color: #ffffff;
-  background-color: #286090;
+  background-color: #336666;
 }
 
 /* Custom, iPhone Retina */ 

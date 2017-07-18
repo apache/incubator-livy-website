@@ -1,0 +1,50 @@
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to you under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+topnav:
+
+- title: Get Started
+  url: /get-started
+
+- title: API Docs
+  url: https://github.com/apache/incubator-livy#rest-api
+
+- title: Community
+  subcategories:
+  - title: Get Involved
+    url: /community
+  - title: Project Committers
+    url: /community-members
+  - title: Issue Tracker
+    url: https://issues.apache.org/jira/browse/LIVY
+  - title: Source Code
+    url: https://github.com/apache/incubator-livy
+  - title: Website Source Code
+    url: https://github.com/apache/incubator-livy-website
+
+
+- title: Apache
+  subcategories:
+  - title: Apache Software Foundation
+    url: http://www.apache.org/foundation/how-it-works.html
+  - title: Apache License
+    url: http://www.apache.org/licenses/
+  - title: Sponsorship
+    url: http://www.apache.org/foundation/sponsorship
+  - title: Thanks
+    url: http://www.apache.org/foundation/thanks.html
+# TODO: Create Privacy Policy Page
+#  - title: Privacy Policy
+#    url: /privacy-policy

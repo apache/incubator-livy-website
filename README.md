@@ -17,7 +17,7 @@ limitations under the License.
 {% endcomment %}
 -->
 
-# Apache Website Template
+# Apache Livy Website
 
 This project contains a template web site that aims to follow all the various required
 Apache Website Policies.
@@ -28,16 +28,14 @@ To use it, copy the `site` directory into your project.  You must also
 include licensing information from the `LICENSE` and `NOTICE` files in
 your own project.
 
-# How to deploy your project's web site
+# How to deploy the web site
 
-(In the following instructions we assume that your project is called
-'Apache Foo'; search and replace with your actual project name.)
 
 ## Setup
 
 ```
 1. cd site
-2. svn co https://svn.apache.org/repos/asf/foo/site target
+2. svn co https://svn.apache.org/repos/asf/incubator-livy/site target
 3. sudo apt-get install rubygems ruby2.1-dev zlib1g-dev
 4. sudo gem install bundler github-pages jekyll
 5. bundle install
@@ -75,11 +73,11 @@ running from within the directory:
 
 Within a few minutes, svnpubsub should kick in and you'll be able to
 see the results at
-[foo.apache.org](https://foo.apache.org/).
+[livy.apache.org](https://livy.apache.org/).
 
 ## Adding contributors
 
 To add a contributor to the project, or to modify existing contributors,
 edit `site/_data/contributors.yml`.
-The [project members]([http://localhost:4000/community.html#project-members]
+The [project members]([http://localhost:4000/community-members/]
 list will re-generate.

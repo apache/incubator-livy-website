@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Downloads
-description: Project Downloads page
+title: Livy - Downloads
+description: Livy Downloads page
 group: nav-right
 ---
 <!--
@@ -30,6 +30,9 @@ limitations under the License.
 
 ### Source releases
 
+There is no official release of Apache Livy yet, try checking out the [GitHub repo](https://github.com/apache/{{ site.data.project.incubator_name }})
+
+<!-- COMMENTED OUT UNTIL FIRST RELEASE
 Release          | Date       | Commit   | Download
 :--------------- | :--------- | :------- | :-------
 {% for post in site.categories.release %}{% comment %}
@@ -59,6 +62,11 @@ Release          | Date       | Commit   | Download
 {% endcomment %} <a href="{{ d }}/{{ site.data.project.unix_name }}/{{ v }}/{{ v }}-src.zip.asc">pgp</a>){% comment %}
 {% endcomment %}
 {% endfor %}
+-->
+
+## Verifying a Release
+
+Instructions for checking hashes and signatures is indicated on the [Verifying Apache Software Foundation Releases](http://www.apache.org/info/verification.html) page.
 
 Choose a source distribution in either *tar* or *zip* format,
 and [verify](http://www.apache.org/dyn/closer.cgi#verify)

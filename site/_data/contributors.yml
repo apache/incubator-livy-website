@@ -17,35 +17,59 @@
 # Pages such as community.md use this data.
 # Please keep the list in alphabetical order.
 #
-- name: DB Tsai
-  apacheId: dbtsai
-  githubId: dbtsai
-  role: PMC
-  org: Netflix
 
-- name: Julian Hyde
-  apacheId: jhyde
-  githubId: julianhyde
+- name: Alex Man
+  apacheId:
+  githubId: alex-the-man
+  role: PMC
+  org:
+
+- name: Bikas Saha
+  apacheId: bikas
+  githubId: bikassaha
+  role: Mentor
   org: Hortonworks
-  role: Contributor
-  homepage: http://people.apache.org/~jhyde
+
+- name: Brock Noland
+  apacheId: brock
+  githubId: brockn
+  role: Mentor
+  org: StreamSets
+
+- name: Jean-Baptiste Onofré
+  apacheId: jbonofre
+  githubId: jbonofre
+  role: Mentor
+  org: Talend
+
+- name: Jeff Zhang
+  apacheId: zjffdu
+  githubId: zjffdu
+  role: PMC
+  org: Hortonworks
+
+- name: Kostas Sakellis
+  apacheId: kostas
+  githubId: ksakellis
+  role: PMC
+  org: Cloudera
 
 - name: Luciano Resende
   apacheId: lresende
   githubId: lresende
-  org: IBM
-  role: Committer and Mentor
-
-- name: Reynold Xin
-  apacheId: rxin
-  githubId: rxin
-  org: Databricks
-  role: Committer and Mentor
-
-- name: Rich Bowen
-  apacheId: rbowen
-  githubId: rbowen
-  org:
   role: Mentor
+  org: IBM
+
+- name: Marcelo Vanzin
+  apacheId: vanzin
+  githubId: vanzin
+  role: PMC
+  org: Cloudera
+
+- name: Saisai Shao
+  apacheId: jshao
+  githubId: jerryshao
+  role: PMC
+  org: Hortonworks
 
 # End contributors.yml

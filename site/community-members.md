@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Community Members
-description: Project Community Page
+title: Livy - Community Members
+description: Livy Community Page
 group: nav-right
 ---
 <!--
@@ -25,7 +25,7 @@ limitations under the License.
 
 {% include JB/setup %}
 
-<br/><br/><br/>
+<br/><br/>
 
 ### {{ site.data.project.short_name }} Team Members
 
@@ -33,7 +33,6 @@ limitations under the License.
 <table class="table table-hover">
     <tr>
         <th><b></b></th><th><b>Full Name</b></th><th><b>Apache ID</b></th><th><b>GitHub</b><th><b>Role</b></th><th><b>Affiliation</b></th>
-    </tr>
     {% for member in site.data.contributors %}
         <tr>
         <td><a href="http://github.com/{{ member.githubId }}"><img width="64" src="{% unless c.avatar %}http://github.com/{{ member.githubId }}.png{% else %}{{ member.avatar }}{% endunless %}"></a></td>
@@ -44,6 +43,5 @@ limitations under the License.
         <td>{{member.org}}</td>
         </tr>
     {% endfor %}
-</table>
 {% endif %}
 
