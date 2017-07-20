@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Apache Livy</title>
+    
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/apache/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/apache/css/style.css?body=1" rel="stylesheet" type="text/css">
+    <link href="/assets/themes/apache/css/syntax.css" rel="stylesheet"  type="text/css" media="screen" />
+    <!-- Le fav and touch icons -->
+    <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+              <img src="/assets/themes/apache/img/logo.png" width="50">
+              Apache Livy
+          </a>
+        </div>
+
+          <nav class="navbar-collapse collapse" role="navigation">
+              <ul class="nav navbar-nav navbar-right">
+                  
+                  <li id="get-started">
+                      
+                      
+                      <a href="/get-started" target="_self">Get Started</a>
+                      
+                  </li>
+                  
+                  <li id="api-docs">
+                      
+                      
+                      <a href="https://github.com/apache/incubator-livy#rest-api" target="_blank">API Docs</a>
+                      
+                  </li>
+                  
+                  <li id="community">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="/community" target="_self">Get Involved</a></li>
+                          
+                          
+                          <li><a href="/community-members" target="_self">Project Committers</a></li>
+                          
+                          
+                          <li><a href="https://issues.apache.org/jira/browse/LIVY" target="_blank">Issue Tracker</a></li>
+                          
+                          
+                          <li><a href="https://github.com/apache/incubator-livy" target="_blank">Source Code</a></li>
+                          
+                          
+                          <li><a href="https://github.com/apache/incubator-livy-website" target="_blank">Website Source Code</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+                  <li id="apache">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Apache<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+              </ul>
+          </nav><!--/.navbar-collapse -->
+
+      </div>
+    </div>
+
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Apache Livy</h1>
+    <p>An REST Service for Apache Spark</p>
+
+    
+  </div>
+</div>
+
+
+
+    <div class="container">
+      
+
+<!--<div class="hero-unit Apache Livy">
+  <h1> <small>Apache Livy</small></h1>
+</div>
+-->
+
+<div class="row">
+  <div class="col-md-12">
+    <!--
+
+-->
+
+<h4 id="submit-jobs-from-anywhere"><em>Submit Jobs from Anywhere</em></h4>
+<blockquote>
+  <p>Livy enables programmatic, fault-tolerant, multi-tenant submission of Spark jobs from web/mobile apps (no Spark
+client needed). So, multiple users can interact with your Spark cluster concurrently and reliably.</p>
+</blockquote>
+
+<h4 id="use-interactive-scala-or-python"><em>Use Interactive Scala or Python</em></h4>
+<blockquote>
+  <p>Livy speaks either Scala or Python, so clients can communicate with your Spark cluster via either language remotely.
+Also, batch job submissions can be done in Scala, Java, or Python.</p>
+</blockquote>
+
+<h4 id="no-code-changes-needed"><em>No Code Changes Needed</em></h4>
+<blockquote>
+  <p>Don’t worry, no changes to existing programs are needed to use Livy. Just build Livy with Maven, deploy the
+configuration file to your Spark cluster, and you’re off! Check out <a href="/get-started">Get Started</a> to
+get going.</p>
+</blockquote>
+
+<h3 id="what-is-apache-livy">What is Apache Livy?</h3>
+
+<p>Apache Livy is a service that enables easy interaction with a Spark cluster over a REST interface. It enables easy
+submission of Spark jobs or snippets of Spark code, synchronous or asynchronous result retrieval, as well as Spark
+Context management, all via a simple REST interface or a RPC client library. Apache Livy also simplifies the
+interaction between Spark from application servers, thus enabling the use of Spark for interactive web/mobile
+applications. Additional features include:</p>
+
+<ul>
+  <li>Have long running Spark Contexts that can be used for multiple Spark jobs, by multiple clients</li>
+  <li>Share cached RDDs or Dataframes across multiple jobs and clients</li>
+  <li>Multiple Spark Contexts can be managed simultaneously, and the Spark Contexts run on the cluster (YARN/Mesos) instead
+of the Livy Server, for good fault tolerance and concurrency</li>
+  <li>Jobs can be submitted as precompiled jars, snippets of code or via java/scala client API</li>
+  <li>Ensure security via secure authenticated communication</li>
+</ul>
+
+<p>To learn more, <a href="https://youtu.be/C_3iEf_KNv8">watch this tech session video</a> from Spark Summit West 2016.</p>
+
+<p><img src="/assets/images/livy-architecture.png" alt="Architecture" style="width: 90%; display: block; margin: 0 auto;" /></p>
+
+  </div>
+</div>
+
+
+      <hr>
+      <footer>
+        <!-- <p>&copy; 2017 </p>-->
+        <footer class="site-footer">
+    <div class="wrapper">
+        <div class="footer-col-wrapper">
+            
+            Apache Livy is an effort undergoing <a href="https://incubator.apache.org/index.html">Incubation</a>
+            at The Apache Software Foundation (ASF), sponsored by the Incubator. Incubation is required of all newly
+            accepted projects until a further review indicates that the infrastructure, communications, and decision
+            making process have stabilized in a manner consistent with other successful ASF projects. While incubation
+            status is not necessarily a reflection of the completeness or stability of the code, it does indicate that
+            the project has yet to be fully endorsed by the ASF.
+            <hr>
+            
+            <div style="text-align:center;">
+                
+                <div style="margin-top: 20px; margin-bottom: 20px;">
+                    <a href="http://incubator.apache.org"><img src="/assets/themes/apache/img/egg-logo.png"
+                                                               alt="Apache Incubator"
+                                                               height="30%" width="30%"/></a>
+                </div>
+                
+                <div>
+                    Copyright &copy; 2017 <a href="http://www.apache.org">The Apache Software Foundation</a>.
+                    Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
+                    2.0</a>.
+                    <br>
+                    
+                    Apache, the Apache Feather logo, and the Apache Incubator project logo are trademarks of The Apache
+                    Software Foundation.
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+    <script src="/assets/themes/apache/jquery/jquery-2.1.1.min.js"></script>
+
+    <script src="/assets/themes/apache/bootstrap/js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
+
