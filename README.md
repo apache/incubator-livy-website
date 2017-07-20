@@ -52,7 +52,7 @@ Before opening a pull request, you can preview your contributions by running fro
 
 ## Publishing to live site
 
-Livy is using [gitpubsub](http://www.apache.org/dev/gitpubsub.html) for publishing the website,
+Apache Livy (Incubating) is using [gitpubsub](http://www.apache.org/dev/gitpubsub.html) for publishing the website,
 and the live website content is stored in the asf-site git branch.
 
 To publish new contents to the website, commit your changes to master, and use the 'publish.sh' shell script.
