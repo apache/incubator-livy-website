@@ -359,7 +359,7 @@ def main():
     original_head = get_current_ref()
 
     branches = get_json("%s/branches" % GITHUB_API_BASE)
-    branch_names = filter(lambda x: x.startswith("branch-"), [x['name'] for x in branches])
+    branch_names = [x['name'] for x in branches]
     # Assumes branch names can be sorted lexicographically
     latest_branch = sorted(branch_names, reverse=True)[0]
 
