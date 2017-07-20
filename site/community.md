@@ -90,6 +90,10 @@ differentiate between bug fixes and features and allows us to build stable maint
 
 3. Write a clear commit message, with a short, descriptive title and a message that is exactly long
 enough to explain what the problem was, and how it was fixed. 
+  * The PR title should be of the form [LIVY-xxxx] Title, where LIVY-xxxx is the relevant JIRA number and Title may be
+  the JIRA's title or a more specific title describing the PR itself.
+  * If the pull request is still a work in progress, and so is not ready to be merged, but needs to be pushed to Github
+  to facilitate review, then add [WIP] after the component.
 
 
 ### Source Code
