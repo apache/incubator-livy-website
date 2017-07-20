@@ -17,67 +17,58 @@ limitations under the License.
 {% endcomment %}
 -->
 
-# Apache Livy Website
+# Apache Livy (Incubating) Website
 
-This project contains a template web site that aims to follow all the various required
-Apache Website Policies.
+The Apache Livy (Incubating) website was forked from the
+[Apache Website Template](https://github.com/apache/apache-website-template).
 
-This template was generated using [Jekyll](https://jekyllrb.com/).
-
-To use it, copy the `site` directory into your project.  You must also
-include licensing information from the `LICENSE` and `NOTICE` files in
-your own project.
+This website is generated using [Jekyll](https://jekyllrb.com/).
 
 # How to deploy the web site
 
 
-## Setup
+## Installing Jekyll and website dependencies
+
+The steps below will install the latest [Jekyll](https://jekyllrb.com/) version
+and any dependencies required to get this website built.
 
 ```
-1. cd site
-2. svn co https://svn.apache.org/repos/asf/incubator-livy/site target
-3. sudo apt-get install rubygems ruby2.1-dev zlib1g-dev
-4. sudo gem install bundler github-pages jekyll
-5. bundle install
+1. sudo gem install jekyll bundler
+2. cd site
+3. sudo bundle install
 ```
 
-## Add javadoc
-
-If your project supports javadoc, you can copy the generated javadoc
-into svn each time you need to re-generate.
-
-```
-1. cd ..
-2. mvn -DskipTests site
-3. mv target/site/apidocs site/target
-```
+For more information, see [Installing Jekyll](https://jekyllrb.com/docs/installation/).
 
 ## Running locally
 
-Before opening a pull request, you can preview your contributions by
-running from within the directory:
+Before opening a pull request, you can preview your contributions by running from within the directory:
 
 ```
-1. bundle exec jekyll serve
-2. Open [http://localhost:4000](http://localhost:4000)
+1. cd site
+2. bundle exec jekyll serve --watch
+3. Open http://localhost:4000
 ```
 
-## Pushing to site
+## Publishing to live site
+
+Livy is using [gitpubsub](http://www.apache.org/dev/gitpubsub.html) for publishing the website,
+and the live website content is stored in the asf-site git branch.
+
+To publish new contents to the website, commit your changes to master, and use the 'publish.sh' shell script.
 
 ```
-1. cd site/target
-2. svn status
-3. You'll need to `svn add` any new files
-4. svn ci
+1. Make your changes
+2. git commit -a -m "My updates"
+3. git push
+4. ./publish.sh
+5. git push origin asf-site
 ```
 
-Within a few minutes, svnpubsub should kick in and you'll be able to
-see the results at
-[livy.apache.org](https://livy.apache.org/).
+Within a few minutes, gitpubsub should kick in and you'll be able to see the results at
+[livy.incubator.apache.org](https://livy.incubator.apache.org/).
 
 ## Adding contributors
 
-To add a contributor to the project, or to modify existing contributors,
-edit `site/_data/contributors.yml`.
-The [project members]([http://localhost:4000/community-members/]
-list will re-generate.
+To add a contributor to the project, or to modify existing contributors, edit `site/_data/contributors.yml`.
+The [project members](http://localhost:4000/community-members/) list will re-generate.
