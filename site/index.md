@@ -25,23 +25,23 @@ limitations under the License.
 {% include JB/setup %}
 
 #### *Submit Jobs from Anywhere*
-> Livy enables programmatic, fault-tolerant, multi-tenant submission of Spark jobs from web/mobile apps (no Spark
+> Apache Livy (Incubating) enables programmatic, fault-tolerant, multi-tenant submission of Spark jobs from web/mobile apps (no Spark
 client needed). So, multiple users can interact with your Spark cluster concurrently and reliably.
 
 #### *Use Interactive Scala or Python*
-> Livy speaks either Scala or Python, so clients can communicate with your Spark cluster via either language remotely.
+> Apache Livy (Incubating) speaks either Scala or Python, so clients can communicate with your Spark cluster via either language remotely.
 Also, batch job submissions can be done in Scala, Java, or Python.
 
 #### *No Code Changes Needed*
-> Don't worry, no changes to existing programs are needed to use Livy. Just build Livy with Maven, deploy the
+> Don't worry, no changes to existing programs are needed to use Apache Livy (Incubating). Just build Livy with Maven, deploy the
 configuration file to your Spark cluster, and you're off! Check out [Get Started]({{ site.baseurl }}/get-started) to
 get going.
 
-### What is Apache Livy?
+### What is Apache Livy (Incubating)?
 
-Apache Livy is a service that enables easy interaction with a Spark cluster over a REST interface. It enables easy
+Apache Livy (Incubating) is a service that enables easy interaction with a Spark cluster over a REST interface. It enables easy
 submission of Spark jobs or snippets of Spark code, synchronous or asynchronous result retrieval, as well as Spark
-Context management, all via a simple REST interface or a RPC client library. Apache Livy also simplifies the
+Context management, all via a simple REST interface or a RPC client library. Apache Livy (Incubating) also simplifies the
 interaction between Spark from application servers, thus enabling the use of Spark for interactive web/mobile
 applications. Additional features include:
 

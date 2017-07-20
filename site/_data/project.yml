@@ -15,7 +15,7 @@
 #
 # Apache Project configurations
 #
-name: Apache Livy
+name: Apache Livy (Incubating)
 short_name: Livy
 unix_name: livy
 incubator_name: incubator-livy

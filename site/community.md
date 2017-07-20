@@ -74,7 +74,7 @@ Enhancement requests for new features are also welcome. The more concrete and ra
 Once you find an issue that you would like to work on, if no-one is working on it, assign it to yourself (only if you
 intend to work on it shortly though). Except for the very smallest items, it’s a very good idea to discuss your intended
 approach either on the issue's JIRA or on the dev mailing list. You are more likely to have your patch reviewed and
-committed if you’ve already got buy-in from the livy community before you start.
+committed if you’ve already got buy-in from the Livy community before you start.
 
 #### Submitting a Fix
 

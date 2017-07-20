@@ -26,7 +26,7 @@ limitations under the License.
 
 <br/><br/>
 
-## Getting Started
+## Getting Started with Apache Livy (Incubating)
 
 ### 1. Install Livy
 Download Livy packages from [here]({{ site.baseurl }}/download).
