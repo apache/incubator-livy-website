@@ -18,8 +18,14 @@ topnav:
 - title: Get Started
   url: /get-started
 
-- title: API Docs
-  url: https://github.com/apache/incubator-livy#rest-api
+- title: Documentation
+  subcategories:
+    - title: REST API
+      url: /documentation/rest-api
+    - title: Programmatic API
+      url: /documentation/programmatic-api
+    - title: Examples
+      url: /documentation/examples
 
 - title: Community
   subcategories:

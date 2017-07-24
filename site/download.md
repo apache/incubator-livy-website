@@ -30,7 +30,8 @@ limitations under the License.
 
 ### Source releases
 
-There is no official release of Apache Livy yet, try checking out the [GitHub repo](https://github.com/apache/{{ site.data.project.incubator_name }})
+There is no official release of Apache Livy yet, try checking out the
+[GitHub repo](https://github.com/apache/{{ site.data.project.incubator_name }}) and building the source code.
 
 <!-- COMMENTED OUT UNTIL FIRST RELEASE
 Release          | Date       | Commit   | Download
