@@ -24,6 +24,8 @@ limitations under the License.
 
 {% include JB/setup %}
 
+<br/><br/>
+
 ## Getting Started
 
 ### 1. Install Livy
