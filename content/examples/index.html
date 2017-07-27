@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Livy - Examples</title>
+    
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/apache/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/apache/css/style.css?body=1" rel="stylesheet" type="text/css">
+    <link href="/assets/themes/apache/css/syntax.css" rel="stylesheet"  type="text/css" media="screen" />
+    <!-- Le fav and touch icons -->
+    <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+              <img src="/assets/themes/apache/img/logo.png" width="50">
+              Apache Livy
+          </a>
+        </div>
+
+          <nav class="navbar-collapse collapse" role="navigation">
+              <ul class="nav navbar-nav navbar-right">
+                  
+                  <li id="get-started">
+                      
+                      
+                      <a href="/get-started" target="_self">Get Started</a>
+                      
+                  </li>
+                  
+                  <li id="documentation">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Documentation<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="https://github.com/apache/incubator-livy/blob/master/docs/rest-api.md#rest-api" target="_blank">REST API</a></li>
+                          
+                          
+                          <li><a href="https://github.com/apache/incubator-livy/blob/master/docs/programmatic-api.md#using-the-programmatic-api" target="_blank">Programmatic API</a></li>
+                          
+                          
+                          <li><a href="/examples" target="_self">Examples</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+                  <li id="community">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="/community" target="_self">Get Involved</a></li>
+                          
+                          
+                          <li><a href="/community-members" target="_self">Project Committers</a></li>
+                          
+                          
+                          <li><a href="https://issues.apache.org/jira/browse/LIVY" target="_blank">Issue Tracker</a></li>
+                          
+                          
+                          <li><a href="https://github.com/apache/incubator-livy" target="_blank">Source Code</a></li>
+                          
+                          
+                          <li><a href="https://github.com/apache/incubator-livy-website" target="_blank">Website Source Code</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+                  <li id="apache">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Apache<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+              </ul>
+          </nav><!--/.navbar-collapse -->
+
+      </div>
+    </div>
+
+
+
+
+    <div class="container">
+      
+
+<!--<div class="hero-unit Livy - Examples">
+  <h1> <small>Examples</small></h1>
+</div>
+-->
+
+<div class="row">
+  <div class="col-md-12">
+    <!--
+
+-->
+
+<h1 id="apache-livy-examples">Apache Livy Examples</h1>
+
+<h2 id="spark-example">Spark Example</h2>
+
+<p>Here’s a step-by-step example of interacting with Livy in Python with the
+<a href="http://docs.python-requests.org/en/latest/">Requests</a> library. By default Livy runs on port 8998 (which can be changed
+with the <code class="highlighter-rouge">livy.server.port</code> config option). We’ll start off with a Spark session that takes Scala code:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sudo pip install requests
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">pprint</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">textwrap</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://localhost:8998'</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'kind'</span><span class="p">:</span> <span class="s">'spark'</span><span class="p">}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s">'/sessions'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="p">{</span><span class="s">u'state'</span><span class="p">:</span> <span class="s">u'starting'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">u'kind'</span><span class="p">:</span> <span class="s">u'spark'</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Once the session has completed starting up, it transitions to the idle state:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">session_url</span> <span class="o">=</span> <span class="n">host</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="p">{</span><span class="s">u'state'</span><span class="p">:</span> <span class="s">u'idle'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">u'kind'</span><span class="p">:</span> <span class="s">u'spark'</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Now we can execute Scala by passing in a simple JSON command:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">statements_url</span> <span class="o">=</span> <span class="n">session_url</span> <span class="o">+</span> <span class="s">'/statements'</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'code'</span><span class="p">:</span> <span class="s">'1 + 1'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="p">{</span><span class="s">u'output'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'running'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>If a statement takes longer than a few milliseconds to execute, Livy returns
+early and provides a statement URL that can be polled until it is complete:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">statement_url</span> <span class="o">=</span> <span class="n">host</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">statement_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s">u'output'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'text/plain'</span><span class="p">:</span> <span class="s">u'res0: Int = 2'</span><span class="p">},</span>
+              <span class="s">u'execution_count'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+              <span class="s">u'status'</span><span class="p">:</span> <span class="s">u'ok'</span><span class="p">},</span>
+  <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'available'</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>That was a pretty simple example. More interesting is using Spark to estimate
+Pi. This is from the <a href="https://spark.apache.org/examples.html">Spark Examples</a>:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'code'</span><span class="p">:</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">"""
+    val NUM_SAMPLES = 100000;
+    val count = sc.parallelize(1 to NUM_SAMPLES).map { i =&gt;
+      val x = Math.random();
+      val y = Math.random();
+      if (x*x + y*y &lt; 1) 1 else 0
+    }.reduce(_ + _);
+    println(</span><span class="se">\"</span><span class="s">Pi is roughly </span><span class="se">\"</span><span class="s"> + 4.0 * count / NUM_SAMPLES)
+    """</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="n">statement_url</span> <span class="o">=</span> <span class="n">host</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">statement_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="s">u'output'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'text/plain'</span><span class="p">:</span> <span class="s">u'Pi is roughly 3.14004</span><span class="se">\n</span><span class="s">NUM_SAMPLES: Int = 100000</span><span class="se">\n</span><span class="s">count: Int = 78501'</span><span class="p">},</span>
+             <span class="s">u'execution_count'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+             <span class="s">u'status'</span><span class="p">:</span> <span class="s">u'ok'</span><span class="p">},</span>
+ <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'available'</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Finally, close the session:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">session_url</span> <span class="o">=</span> <span class="s">'http://localhost:8998/sessions/0'</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">204</span><span class="p">]</span><span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="pyspark-example">PySpark Example</h3>
+
+<p>PySpark has the same API, just with a different initial request:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'kind'</span><span class="p">:</span> <span class="s">'pyspark'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s">'/sessions'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'idle'</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>The Pi example from before then can be run as:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'code'</span><span class="p">:</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">"""
+    import random
+    NUM_SAMPLES = 100000
+    def sample(p):
+      x, y = random.random(), random.random()
+      return 1 if x*x + y*y &lt; 1 else 0
+
+    count = sc.parallelize(xrange(0, NUM_SAMPLES)).map(sample).reduce(lambda a, b: a + b)
+    print "Pi is roughly </span><span class="si">%</span><span class="s">f" </span><span class="si">% </span><span class="s">(4.0 * count / NUM_SAMPLES)
+    """</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+<span class="s">u'output'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'text/plain'</span><span class="p">:</span> <span class="s">u'Pi is roughly 3.136000'</span><span class="p">},</span>
+            <span class="s">u'execution_count'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+            <span class="s">u'status'</span><span class="p">:</span> <span class="s">u'ok'</span><span class="p">},</span>
+<span class="s">u'state'</span><span class="p">:</span> <span class="s">u'running'</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="sparkr-example">SparkR Example</h3>
+
+<p>SparkR has the same API:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'kind'</span><span class="p">:</span> <span class="s">'sparkr'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s">'/sessions'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'idle'</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>The Pi example from before then can be run as:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'code'</span><span class="p">:</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">"""
+    n &lt;- 100000
+    piFunc &lt;- function(elem) {
+      rands &lt;- runif(n = 2, min = -1, max = 1)
+      val &lt;- ifelse((rands[1]^2 + rands[2]^2) &lt; 1, 1.0, 0.0)
+      val
+    }
+    piFuncVec &lt;- function(elems) {
+      message(length(elems))
+      rands1 &lt;- runif(n = length(elems), min = -1, max = 1)
+      rands2 &lt;- runif(n = length(elems), min = -1, max = 1)
+      val &lt;- ifelse((rands1^2 + rands2^2) &lt; 1, 1.0, 0.0)
+      sum(val)
+    }
+    rdd &lt;- parallelize(sc, 1:n, slices)
+    count &lt;- reduce(lapplyPartition(rdd, piFuncVec), sum)
+    cat("Pi is roughly", 4.0 * count / n, "</span><span class="se">\n</span><span class="s">")
+    """</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+ <span class="s">u'output'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'text/plain'</span><span class="p">:</span> <span class="s">u'Pi is roughly 3.136000'</span><span class="p">},</span>
+             <span class="s">u'execution_count'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+             <span class="s">u'status'</span><span class="p">:</span> <span class="s">u'ok'</span><span class="p">},</span>
+ <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'running'</span><span class="p">}</span>
+</code></pre>
+</div>
+
+  </div>
+</div>
+
+
+      <hr>
+      <footer>
+        <!-- <p>&copy; 2017 </p>-->
+        <footer class="site-footer">
+    <div class="wrapper">
+        <div class="footer-col-wrapper">
+            
+            Apache Livy is an effort undergoing <a href="https://incubator.apache.org/index.html">Incubation</a>
+            at The Apache Software Foundation (ASF), sponsored by the Incubator. Incubation is required of all newly
+            accepted projects until a further review indicates that the infrastructure, communications, and decision
+            making process have stabilized in a manner consistent with other successful ASF projects. While incubation
+            status is not necessarily a reflection of the completeness or stability of the code, it does indicate that
+            the project has yet to be fully endorsed by the ASF.
+            <hr>
+            
+            <div style="text-align:center;">
+                
+                <div style="margin-top: 20px; margin-bottom: 20px;">
+                    <a href="http://incubator.apache.org"><img src="/assets/themes/apache/img/egg-logo.png"
+                                                               alt="Apache Incubator"
+                                                               height="30%" width="30%"/></a>
+                </div>
+                
+                <div>
+                    Copyright &copy; 2017 <a href="http://www.apache.org">The Apache Software Foundation</a>.
+                    Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
+                    2.0</a>.
+                    <br>
+                    
+                    Apache, the Apache Feather logo, and the Apache Incubator project logo are trademarks of The Apache
+                    Software Foundation.
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+    <script src="/assets/themes/apache/jquery/jquery-2.1.1.min.js"></script>
+
+    <script src="/assets/themes/apache/bootstrap/js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
+
