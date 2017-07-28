@@ -21,9 +21,9 @@ topnav:
 - title: Documentation
   subcategories:
     - title: REST API
-      url: https://github.com/apache/incubator-livy/blob/master/docs/rest-api.md#rest-api
+      url: /docs/latest/rest-api.html
     - title: Programmatic API
-      url: https://github.com/apache/incubator-livy/blob/master/docs/programmatic-api.md#using-the-programmatic-api
+      url: /docs/latest/programmatic-api.html
     - title: Examples
       url: /examples
 
