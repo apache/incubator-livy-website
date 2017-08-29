@@ -39,7 +39,7 @@ Our first Apache release!
 
 New features
 
-* [<a href="https://issues.cloudera.org/browse/LIVY-87">LIVY-87</a>]
+* [<a href="https://issues.apache.org/jira/browse/LIVY-87">LIVY-87</a>]
   Create a Livy Web UI to monitor sessions
-* [<a href="https://issues.cloudera.org/browse/LIVY-348">LIVY-348</a>]
+* [<a href="https://issues.apache.org/jira/browse/LIVY-348">LIVY-348</a>]
   Improve Livy's ACLs

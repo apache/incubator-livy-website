@@ -36,24 +36,24 @@ limitations under the License.
             <th><b>Name</b></th>
             <th><b>Archive</b></th>
             <th><b>MD5</b></th>
-            <th><b>SHA-1</b></th>
+            <th><b>SHA-512</b></th>
             <th><b>signature</b></th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (tar.gz)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-bin/apache-{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-binary-release.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-bin/apache-{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-binary-release.tar.gz.md5">MD5</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-bin/apache-{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-binary-release.tar.gz.sha">SHA-1</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-bin/apache-{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-binary-release.tar.gz.asc">ASC</a></td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.md5">MD5</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.sha512">SHA-512</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (source tar.gz)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-src/apache-{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-source-release.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-src/apache-{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-source-release.tar.gz.md5">MD5</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-src/apache-{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-source-release.tar.gz.sha">SHA-1</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-src/apache-{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-source-release.tar.gz.asc">ASC</a></td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.md5">MD5</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.sha512">SHA-512</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.asc">ASC</a></td>
         </tr>
     </tbody>
 </table>
@@ -65,6 +65,10 @@ git clone {{site.data.project.source_repository_mirror}}
 cd {{site.data.project.github_project_name}}
 git checkout -b tags/v{{site.data.project.latest_release}} v{{site.data.project.latest_release}}
 </pre>
+
+### Release Notes
+
+Release notes for the current and previous releases can be found in the [release history]({{ site.baseurl }}/history)
 
 ### Previous Releases
 
