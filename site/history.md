@@ -32,7 +32,7 @@ For a full list of releases, see
 Downloads are available on the
 [downloads page]({{ site.baseurl }}/download).
 
-## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.4.0-incubating">0.4.0-incubating</a> / 2017-08-30
+## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.4.0-incubating">0.4.0-incubating</a> / 2017-09-01
 {: #v0-4-0-incubating}
 
 Our first Apache release!
