@@ -15,6 +15,11 @@ body {
   padding-bottom: 10px;
 }
 
+.navbar-brand .version {
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .navbar {
  background-color:#339999;
  border-bottom:0px;
