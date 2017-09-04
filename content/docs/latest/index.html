@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Livy - Getting Started</title>
+    <title>Livy Docs</title>
     
     <meta name="author" content="">
 
@@ -44,18 +44,12 @@
           <a class="navbar-brand" href="/">
               <img src="/assets/themes/apache/img/logo.png" width="50">
               Apache Livy
+            <span class="version">0.4.0-incubating</span>
           </a>
         </div>
 
           <nav class="navbar-collapse collapse" role="navigation">
               <ul class="nav navbar-nav navbar-right">
-                  
-                  <li id="get-started">
-                      
-                      
-                      <a href="/get-started" target="_self">Get Started</a>
-                      
-                  </li>
                   
                   <li id="documentation">
                       
@@ -63,37 +57,10 @@
                       <ul class="dropdown-menu dropdown-left">
                           
                           
-                          <li><a href="/docs/latest/rest-api.html" target="_self">REST API</a></li>
+                          <li><a href="rest-api.html" target="_self">REST API</a></li>
                           
                           
-                          <li><a href="/docs/latest/programmatic-api.html" target="_self">Programmatic API</a></li>
-                          
-                          
-                          <li><a href="/examples" target="_self">Examples</a></li>
-                          
-                      </ul>
-                      
-                  </li>
-                  
-                  <li id="community">
-                      
-                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a>
-                      <ul class="dropdown-menu dropdown-left">
-                          
-                          
-                          <li><a href="/community" target="_self">Get Involved</a></li>
-                          
-                          
-                          <li><a href="/community-members" target="_self">Project Committers</a></li>
-                          
-                          
-                          <li><a href="https://issues.apache.org/jira/browse/LIVY" target="_blank">Issue Tracker</a></li>
-                          
-                          
-                          <li><a href="https://github.com/apache/incubator-livy" target="_blank">Source Code</a></li>
-                          
-                          
-                          <li><a href="https://github.com/apache/incubator-livy-website" target="_blank">Website Source Code</a></li>
+                          <li><a href="programmatic-api.html" target="_self">Programmatic API</a></li>
                           
                       </ul>
                       
@@ -127,13 +94,11 @@
     </div>
 
 
-
-
     <div class="container">
       
 
-<!--<div class="hero-unit Livy - Getting Started">
-  <h1> <small>Getting Started</small></h1>
+<!--<div class="hero-unit Livy Docs">
+  <h1> <small>Documentation</small></h1>
 </div>
 -->
 
@@ -143,46 +108,11 @@
 
 -->
 
-<h2 id="getting-started">Getting Started</h2>
+<h1 id="apache-livy-documentation">Apache Livy Documentation</h1>
 
-<h3 id="1-install-livy">1. Install Livy</h3>
-<p>Download Livy packages from <a href="/download">here</a>.</p>
+<h3 id="rest-api"><a href="rest-api.html">REST API</a></h3>
 
-<h3 id="2-run-livy">2. Run Livy</h3>
-<p>To run the Livy server, you will also need an Apache Spark installation. You can get Spark releases at
-<a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a>. Livy requires at least Spark 1.6 and supports both Scala 2.10 and 2.11
-builds of Spark. To run Livy with local sessions, first export these variables:</p>
-
-<p><code class="highlighter-rouge">export SPARK_HOME=/usr/lib/spark</code></p>
-
-<p><code class="highlighter-rouge">export HADOOP_CONF_DIR=/etc/hadoop/conf</code></p>
-
-<p>Then start the server with:</p>
-
-<p><code class="highlighter-rouge">./bin/livy-server</code></p>
-
-<p>Livy uses the Spark configuration under <code class="highlighter-rouge">SPARK_HOME</code> by default. You can override the Spark configuration by setting the
-<code class="highlighter-rouge">SPARK_CONF_DIR</code> environment variable before starting Livy.</p>
-
-<p>It is strongly recommended to configure Spark to submit applications in YARN cluster mode. That makes sure that user
-sessions have their resources properly accounted for in the YARN cluster, and that the host running the Livy server
-doesn’t become overloaded when multiple user sessions are running.</p>
-
-<h3 id="3-configure-livy">3. Configure Livy</h3>
-<p>Livy uses a few configuration files under configuration the directory, which by default is the conf directory under the
-Livy installation. An alternative configuration directory can be provided by setting the <code class="highlighter-rouge">LIVY_CONF_DIR</code> environment
-variable when starting Livy.</p>
-
-<p>The configuration files used by Livy are:</p>
-
-<ul>
-  <li><strong>livy.conf:</strong> contains the server configuration. The Livy distribution ships with a default configuration file
-template listing available configuration keys and their default values.</li>
-  <li><strong>spark-blacklist.conf:</strong> list Spark configuration options that users are not allowed to override. These options will
-be restricted to either their default values, or the values set in the Spark configuration used by Livy.</li>
-  <li><strong>log4j.properties:</strong> configuration for Livy logging. Defines log levels and where log messages will be written to.
-The default configuration template will print log messages to stderr.</li>
-</ul>
+<h3 id="programmatic-api"><a href="programmatic-api.html">Programmatic API</a></h3>
 
   </div>
 </div>
@@ -229,7 +159,6 @@ The default configuration template will print log messages to stderr.</li>
       </footer>
     </div>
 
-    
     <script src="/assets/themes/apache/jquery/jquery-2.1.1.min.js"></script>
 
     <script src="/assets/themes/apache/bootstrap/js/bootstrap.min.js"></script>
