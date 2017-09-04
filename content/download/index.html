@@ -149,14 +149,49 @@
 
 <h3 id="source-releases">Source releases</h3>
 
-<p>There is no official release of Apache Livy yet, try checking out the
-<a href="https://github.com/apache/incubator-livy">GitHub repo</a> and building the source code.</p>
+<table class="table table-hover sortable">
+    <thead>
+        <tr>
+            <th><b>Name</b></th>
+            <th><b>Archive</b></th>
+            <th><b>MD5</b></th>
+            <th><b>SHA-512</b></th>
+            <th><b>signature</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Apache Livy 0.4.0-incubating (tar.gz)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip.md5">MD5</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip.sha512">SHA-512</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-bin.zip.asc">ASC</a></td>
+        </tr>
+        <tr>
+            <td>Apache Livy 0.4.0-incubating (source tar.gz)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-src.zip">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-src.zip.md5">MD5</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-src.zip.sha512">SHA-512</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/livy/0.4.0-incubating/livy-0.4.0-incubating-src.zip.asc">ASC</a></td>
+        </tr>
+    </tbody>
+</table>
 
-<!-- COMMENTED OUT UNTIL FIRST RELEASE
-Release          | Date       | Commit   | Download
-:--------------- | :--------- | :------- | :-------
+<p>You can also retrieve the source files from our <a href="https://github.com/apache/incubator-livy">git repository</a> by typing:</p>
 
--->
+<pre>
+git clone https://github.com/apache/incubator-livy
+cd incubator-livy
+git checkout -b tags/v0.4.0-incubating v0.4.0-incubating
+</pre>
+
+<h3 id="release-notes">Release Notes</h3>
+
+<p>Release notes for the current and previous releases can be found in the <a href="/history">release history</a></p>
+
+<h3 id="previous-releases">Previous Releases</h3>
+
+<p>All previous releases of Apache Livy can be found in the <a href="http://archive.apache.org/dist/incubator/livy/">archives</a>.</p>
 
 <h2 id="verifying-a-release">Verifying a Release</h2>
 
@@ -165,7 +200,7 @@ Release          | Date       | Commit   | Download
 <p>Choose a source distribution in either <em>tar</em> or <em>zip</em> format,
 and <a href="http://www.apache.org/dyn/closer.cgi#verify">verify</a>
 using the corresponding <em>pgp</em> signature (using the committer file in
-<a href="http://www.apache.org/dist/livy/KEYS">KEYS</a>).
+<a href="http://www.apache.org/dist/incubator/livy/KEYS">KEYS</a>).
 If you cannot do that, the <em>md5</em> hash file may be used to check that the
 download has completed OK.</p>
 
@@ -176,7 +211,7 @@ If a download from a mirror fails, retry, and the second download will likely
 succeed.</p>
 
 <p>For security, hash and signature files are always hosted at
-<a href="https://www.apache.org/dist">Apache</a>.</p>
+<a href="https://www.apache.org/dist/incubator/livy/">Apache</a>.</p>
 
 
   </div>
