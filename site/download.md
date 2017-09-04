@@ -30,40 +30,49 @@ limitations under the License.
 
 ### Source releases
 
-There is no official release of Apache Livy yet, try checking out the
-[GitHub repo](https://github.com/apache/{{ site.data.project.incubator_name }}) and building the source code.
+<table class="table table-hover sortable">
+    <thead>
+        <tr>
+            <th><b>Name</b></th>
+            <th><b>Archive</b></th>
+            <th><b>MD5</b></th>
+            <th><b>SHA-512</b></th>
+            <th><b>signature</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (tar.gz)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.md5">MD5</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.sha512">SHA-512</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.asc">ASC</a></td>
+        </tr>
+        <tr>
+            <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (source tar.gz)</td>
+            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip">tar.gz</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.md5">MD5</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.sha512">SHA-512</a></td>
+            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.asc">ASC</a></td>
+        </tr>
+    </tbody>
+</table>
 
-<!-- COMMENTED OUT UNTIL FIRST RELEASE
-Release          | Date       | Commit   | Download
-:--------------- | :--------- | :------- | :-------
-{% for post in site.categories.release %}{% comment %}
-{% endcomment %}{% if post.fullVersion %}{% comment %}
-{% endcomment %}{% assign v = post.fullVersion %}{% comment %}
-{% endcomment %}{% else %}{% comment %}
-{% endcomment %}{% capture v %}apache-{{ site.data.project.unix_name }}-{{ post.version }}{% endcapture %}{% comment %}
-{% endcomment %}{% endif %}{% comment %}
-{% endcomment %}{% if forloop.index0 < 2 %}{% comment %}
-{% endcomment %}{% capture p %}http://www.apache.org/dyn/closer.lua?filename={{ site.data.project.unix_name }}/{{ v }}{% endcapture %}{% comment %}
-{% endcomment %}{% assign q = "&action=download" %}{% comment %}
-{% endcomment %}{% assign d = "https://www.apache.org/dist" %}{% comment %}
-{% endcomment %}{% else %}{% comment %}
-{% endcomment %}{% capture p %}http://archive.apache.org/dist/incubator/{{ site.data.project.unix_name }}/{{ v }}{% endcapture %}{% comment %}
-{% endcomment %}{% assign q = "" %}{% comment %}
-{% endcomment %}{% assign d = "https://archive.apache.org/dist/incubator" %}{% comment %}
-{% endcomment %}{% endif %}{% comment %}
-{% endcomment %}<a href="{{ site.baseurl }}/history.html#{{ post.tag }}">{{ post.version }}</a>{% comment %}
-{% endcomment %} | {{ post.date | date_to_string }}{% comment %}
-{% endcomment %} | <a href="https://github.com/apache/{{ site.data.project.unix_name }}/commit/{{ post.sha }}">{{ post.sha }}</a>{% comment %}
-{% endcomment %} | <a href="{{ p }}/{{ v }}-src.tar.gz{{ q }}">tar</a>{% comment %}
-{% endcomment %} (<a href="{{ d }}/{{ site.data.project.unix_name }}/{{ v }}/{{ v }}-src.tar.gz.md5">md5</a>{% comment %}
-{% endcomment %} <a href="{{ d }}/{{ site.data.project.unix_name }}/{{ v }}/{{ v }}-src.tar.gz.asc">pgp</a>){% comment %}
-{% endcomment %} {% raw %}<br>{% endraw %}{% comment %}
-{% endcomment %} <a href="{{ p }}/{{ v }}-src.zip{{ q }}">zip</a>{% comment %}
-{% endcomment %} (<a href="{{ d }}/{{ site.data.project.unix_name }}/{{ v }}/{{ v }}-src.zip.md5">md5</a>{% comment %}
-{% endcomment %} <a href="{{ d }}/{{ site.data.project.unix_name }}/{{ v }}/{{ v }}-src.zip.asc">pgp</a>){% comment %}
-{% endcomment %}
-{% endfor %}
--->
+You can also retrieve the source files from our [git repository](https://github.com/apache/{{ site.data.project.incubator_name }}) by typing:
+
+<pre>
+git clone {{site.data.project.source_repository_mirror}}
+cd {{site.data.project.github_project_name}}
+git checkout -b tags/v{{site.data.project.latest_release}} v{{site.data.project.latest_release}}
+</pre>
+
+### Release Notes
+
+Release notes for the current and previous releases can be found in the [release history]({{ site.baseurl }}/history)
+
+### Previous Releases
+
+All previous releases of {{ site.data.project.name }} can be found in the [archives](http://archive.apache.org/dist/incubator/{{site.data.project.unix_name}}/).
 
 ## Verifying a Release
 
@@ -72,7 +81,7 @@ Instructions for checking hashes and signatures is indicated on the [Verifying A
 Choose a source distribution in either *tar* or *zip* format,
 and [verify](http://www.apache.org/dyn/closer.cgi#verify)
 using the corresponding *pgp* signature (using the committer file in
-[KEYS](http://www.apache.org/dist/{{ site.data.project.unix_name }}/KEYS)).
+[KEYS](http://www.apache.org/dist/incubator/{{ site.data.project.unix_name }}/KEYS)).
 If you cannot do that, the *md5* hash file may be used to check that the
 download has completed OK.
 
@@ -83,5 +92,5 @@ If a download from a mirror fails, retry, and the second download will likely
 succeed.
 
 For security, hash and signature files are always hosted at
-[Apache](https://www.apache.org/dist).
+[Apache](https://www.apache.org/dist/incubator/{{ site.data.project.unix_name }}/).
 
