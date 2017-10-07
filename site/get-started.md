@@ -62,3 +62,12 @@ template listing available configuration keys and their default values.
 be restricted to either their default values, or the values set in the Spark configuration used by Livy.
 * **log4j.properties:** configuration for Livy logging. Defines log levels and where log messages will be written to.
 The default configuration template will print log messages to stderr.
+
+### 4. Start using Livy
+
+Once the Livy server is running, you can connect to it, by default, on port 8998 (this can be changed with the 
+`livy.server.port` config option). Some examples to get started are provided [here]({{ site.baseurl }}/examples), 
+or you can check out the API documentation:
+
+* [REST API]({{ site.baseurl }}/docs/latest/rest-api.html)
+* [Programmatic API]({{ site.baseurl }}/docs/latest/programmatic-api.html)

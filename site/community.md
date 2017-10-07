@@ -31,8 +31,8 @@ Every volunteer project obtains its strength from the people involved in it. We 
 
 You can:
 
-* Use our project and provide a feedback.
-* Provide us with the use-cases.
+* Use our project and provide feedback.
+* Provide us with use cases.
 * Report bugs and submit patches.
 * Contribute code, javadocs, documentation.
 
@@ -54,13 +54,13 @@ Found bug? Enter an issue in the [Issue Tracker](https://issues.apache.org/jira/
 Before submitting an issue, please:
 
 * Verify that the bug does in fact exist.
-* Search the issue tracker to verify there is no existing issue reporting the bug you've found.
+* Search the issue tracker to verify there are no existing issue reporting the bug you've found.
 * Consider tracking down the bug yourself in the Livy source code and submitting a patch along with your bug report. This is a great time saver for the Livy developers and helps ensure the bug will be fixed quickly.
 
 
 #### Feature Requests
 
-Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.
+Enhancement requests for new features are also welcome. The more concrete and rational the request is, the greater the chance it will be incorporated into future releases.
 
 
   [https://issues.apache.org/jira/browse/{{ site.data.project.jira }}](https://issues.apache.org/jira/browse/{{ site.data.project.jira }})
@@ -69,7 +69,7 @@ Enhancement requests for new features are also welcome. The more concrete and ra
 
 #### Finding an Issue
 
-Once you find an issue that you would like to work on, if no-one is working on it, assign it to yourself (only if you
+Once you find an issue that you would like to work on, if no one is working on it, assign it to yourself (only if you
 intend to work on it shortly though). Except for the very smallest items, it’s a very good idea to discuss your intended
 approach either on the issue's JIRA or on the dev mailing list. You are more likely to have your patch reviewed and
 committed if you’ve already got buy-in from the livy community before you start.
@@ -81,13 +81,13 @@ As you are writing your patch, please keep the following things in mind:
 1. Include tests with your patch. If your patch does not include tests, it will not be accepted. If you are
 unsure how to write tests for a particular component, please ask on the dev mailing list for guidance.
 
-2. Keep your patch narrowly targeted to the problem described by the JIRA. It is important to we maintain
+2. Keep your patch narrowly targeted to the problem described by the JIRA. It is important that we maintain
 discipline about the scope of each patch. In general, if you find a bug while working on a specific feature, file a JIRA
 for the bug, check if you can assign it to yourself and fix it independently of the feature. This helps us to
 differentiate between bug fixes and features and allows us to build stable maintenance releases.
 
 3. Write a clear commit message, with a short, descriptive title and a message that is exactly long
-enough to explain what the problem was, and how it was fixed. 
+enough to explain what the problem was and how it was fixed. 
   * The PR title should be of the form [LIVY-xxxx] Title, where LIVY-xxxx is the relevant JIRA number and Title may be
   the JIRA's title or a more specific title describing the PR itself.
   * If the pull request is still a work in progress, and so is not ready to be merged, but needs to be pushed to Github
