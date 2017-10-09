@@ -150,8 +150,8 @@
 <p>You can:</p>
 
 <ul>
-  <li>Use our project and provide a feedback.</li>
-  <li>Provide us with the use-cases.</li>
+  <li>Use our project and provide feedback.</li>
+  <li>Provide us with use cases.</li>
   <li>Report bugs and submit patches.</li>
   <li>Contribute code, javadocs, documentation.</li>
 </ul>
@@ -164,6 +164,7 @@
   <li><a href="mailto:user@livy.incubator.apache.org">user@livy.incubator.apache.org</a> is for usage questions, help, and announcements. <a href="mailto:user-subscribe@livy.incubator.apache.org?subject=send this email to subscribe">subscribe</a>,     <a href="mailto:dev-unsubscribe@livy.incubator.apache.org?subject=send this email to unsubscribe">unsubscribe</a>, <a href="https://www.mail-archive.com/user@livy.incubator.apache.org/">archives</a></li>
   <li><a href="mailto:dev@livy.incubator.apache.org">dev@livy.incubator.apache.org</a> is for people who want to contribute code to Livy. <a href="mailto:dev-subscribe@livy.incubator.apache.org?subject=send this email to subscribe">subscribe</a>, <a href="mailto:dev-unsubscribe@livy.incubator.apache.org?subject=send this email to unsubscribe">unsubscribe</a>, <a href="https://www.mail-archive.com/dev@livy.incubator.apache.org/">archives</a></li>
   <li><a href="mailto:commits@livy.incubator.apache.org">commits@livy.incubator.apache.org</a> is for commit messages and patches to Livy. <a href="mailto:commits-subscribe@livy.incubator.apache.org?subject=send this email to subscribe">subscribe</a>, <a href="mailto:commits-unsubscribe@livy.incubator.apache.org?subject=send this email to unsubscribe">unsubscribe</a>, <a href="https://www.mail-archive.com/commits@livy.incubator.apache.org/">archives</a></li>
+  <li><a href="mailto:issues@livy.incubator.apache.org">issues@livy.incubator.apache.org</a> is for changes and comments to Livy issues. <a href="mailto:issues-subscribe@livy.incubator.apache.org?subject=send this email to subscribe">subscribe</a>, <a href="mailto:issues-unsubscribe@livy.incubator.apache.org?subject=send this email to unsubscribe">unsubscribe</a>, <a href="https://www.mail-archive.com/issues@livy.incubator.apache.org/">archives</a></li>
 </ul>
 
 <h3 id="issue-tracking">Issue tracking</h3>
@@ -176,13 +177,13 @@
 
 <ul>
   <li>Verify that the bug does in fact exist.</li>
-  <li>Search the issue tracker to verify there is no existing issue reporting the bug you’ve found.</li>
+  <li>Search the issue tracker to verify there are no existing issue reporting the bug you’ve found.</li>
   <li>Consider tracking down the bug yourself in the Livy source code and submitting a patch along with your bug report. This is a great time saver for the Livy developers and helps ensure the bug will be fixed quickly.</li>
 </ul>
 
 <h4 id="feature-requests">Feature Requests</h4>
 
-<p>Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.</p>
+<p>Enhancement requests for new features are also welcome. The more concrete and rational the request is, the greater the chance it will be incorporated into future releases.</p>
 
 <p><a href="https://issues.apache.org/jira/browse/LIVY">https://issues.apache.org/jira/browse/LIVY</a></p>
 
@@ -190,7 +191,7 @@
 
 <h4 id="finding-an-issue">Finding an Issue</h4>
 
-<p>Once you find an issue that you would like to work on, if no-one is working on it, assign it to yourself (only if you
+<p>Once you find an issue that you would like to work on, if no one is working on it, assign it to yourself (only if you
 intend to work on it shortly though). Except for the very smallest items, it’s a very good idea to discuss your intended
 approach either on the issue’s JIRA or on the dev mailing list. You are more likely to have your patch reviewed and
 committed if you’ve already got buy-in from the livy community before you start.</p>
@@ -205,14 +206,13 @@ committed if you’ve already got buy-in from the livy community before you star
 unsure how to write tests for a particular component, please ask on the dev mailing list for guidance.</p>
   </li>
   <li>
-    <p>Keep your patch narrowly targeted to the problem described by the JIRA. It is important to we maintain
+    <p>Keep your patch narrowly targeted to the problem described by the JIRA. It is important that we maintain
 discipline about the scope of each patch. In general, if you find a bug while working on a specific feature, file a JIRA
 for the bug, check if you can assign it to yourself and fix it independently of the feature. This helps us to
 differentiate between bug fixes and features and allows us to build stable maintenance releases.</p>
   </li>
-  <li>
-    <p>Write a clear commit message, with a short, descriptive title and a message that is exactly long
-enough to explain what the problem was, and how it was fixed.</p>
+  <li>Write a clear commit message, with a short, descriptive title and a message that is exactly long
+enough to explain what the problem was and how it was fixed.
     <ul>
       <li>The PR title should be of the form [LIVY-xxxx] Title, where LIVY-xxxx is the relevant JIRA number and Title may be
   the JIRA’s title or a more specific title describing the PR itself.</li>
@@ -220,6 +220,8 @@ enough to explain what the problem was, and how it was fixed.</p>
   to facilitate review, then add [WIP] after the component.</li>
     </ul>
   </li>
+  <li>Link your patch with it’s associated JIRA by adding a link on the JIRA to your pull request and including a link to
+the JIRA in your pull request.</li>
 </ol>
 
 <h3 id="source-code">Source Code</h3>
