@@ -43,6 +43,7 @@ Get help using {{ site.data.project.short_name }} or contribute to the project o
 * [{{ site.data.project.user_list }}](mailto:{{ site.data.project.user_list }}) is for usage questions, help, and announcements. [subscribe](mailto:{{ site.data.project.user_list_subscribe }}?subject=send this email to subscribe),     [unsubscribe](mailto:{{ site.data.project.dev_list_unsubscribe }}?subject=send this email to unsubscribe), [archives]({{ site.data.project.user_list_archive_mailarchive }})
 * [{{ site.data.project.dev_list }}](mailto:{{ site.data.project.dev_list }}) is for people who want to contribute code to {{ site.data.project.short_name }}. [subscribe](mailto:{{ site.data.project.dev_list_subscribe }}?subject=send this email to subscribe), [unsubscribe](mailto:{{ site.data.project.dev_list_unsubscribe }}?subject=send this email to unsubscribe), [archives]({{ site.data.project.dev_list_archive_mailarchive }})
 * [{{ site.data.project.commits_list }}](mailto:{{ site.data.project.commits_list }}) is for commit messages and patches to {{ site.data.project.short_name }}. [subscribe](mailto:{{ site.data.project.commits_list_subscribe }}?subject=send this email to subscribe), [unsubscribe](mailto:{{ site.data.project.commits_list_unsubscribe }}?subject=send this email to unsubscribe), [archives]({{ site.data.project.commits_list_archive_mailarchive }})
+* [{{ site.data.project.issues_list }}](mailto:{{ site.data.project.issues_list }}) is for changes and comments to {{ site.data.project.short_name }} issues. [subscribe](mailto:{{ site.data.project.issues_list_subscribe }}?subject=send this email to subscribe), [unsubscribe](mailto:{{ site.data.project.issues_list_unsubscribe }}?subject=send this email to unsubscribe), [archives]({{ site.data.project.issues_list_archive_mailarchive }})
 
 
 ### Issue tracking
@@ -93,6 +94,8 @@ enough to explain what the problem was, and how it was fixed.
   * If the pull request is still a work in progress, and so is not ready to be merged, but needs to be pushed to Github
   to facilitate review, then add [WIP] after the component.
 
+4. Link your patch with it's associated JIRA by adding a link on the JIRA to your pull request and including a link to
+the JIRA in your pull request.
 
 ### Source Code
 

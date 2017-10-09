@@ -18,11 +18,17 @@
 # Please keep the list in alphabetical order.
 #
 
+- name: Alex Bozarth
+  apacheId: ajbozarth
+  githubId: ajbozarth
+  role: Committer
+  org: IBM
+
 - name: Alex Man
   apacheId:
   githubId: alex-the-man
   role: PMC
-  org:
+  org: Independant
 
 - name: Bikas Saha
   apacheId: bikas

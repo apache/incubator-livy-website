@@ -46,6 +46,13 @@ commits_list_archive: http://mail-archives.apache.org/mod_mbox/livy-commits/
 commits_list_archive_mailarchive: https://www.mail-archive.com/commits@livy.incubator.apache.org/
 commits_list_archive_markmail:
 
+issues_list: issues@livy.incubator.apache.org
+issues_list_subscribe: issues-subscribe@livy.incubator.apache.org
+issues_list_unsubscribe: issues-unsubscribe@livy.incubator.apache.org
+issues_list_archive: http://mail-archives.apache.org/mod_mbox/livy-issues/
+issues_list_archive_mailarchive: https://www.mail-archive.com/issues@livy.incubator.apache.org/
+issues_list_archive_markmail:
+
 jira: LIVY
 
 github_project_name: incubator-livy
