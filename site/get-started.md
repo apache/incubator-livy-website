@@ -65,7 +65,7 @@ The default configuration template will print log messages to stderr.
 
 ### 4. Start using Livy
 
-Once the Livy server is running, you can connect to it, by default, on port 8998 (this can be changed with the 
+Once the Livy server is running, you can connect to it on port 8998 (this can be changed with the 
 `livy.server.port` config option). Some examples to get started are provided [here]({{ site.baseurl }}/examples), 
 or you can check out the API documentation:
 
