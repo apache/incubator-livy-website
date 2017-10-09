@@ -22,8 +22,8 @@ bundle exec jekyll clean
 bundle exec jekyll build -d _site
 COMMIT_HASH=`git rev-parse HEAD`
 cd ..
-git checkout asf-site
-git branch --set-upstream-to=origin/asf-site asf-site
+git checkout -B asf-site
+git branch --set-upstream-to=apache/asf-site asf-site
 git pull --rebase
 rm -rf content
 mkdir content
@@ -34,7 +34,7 @@ git commit -a -m "Publishing from $COMMIT_HASH"
 echo "> > >"
 echo " "
 echo "You are now on the asf-site branch"
-echo "Run git push origin asf-site to update the live site."
+echo "Run git push apache asf-site to update the live site."
 echo " "
 echo " "
 set +e
