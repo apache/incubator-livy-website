@@ -22,7 +22,7 @@ bundle exec jekyll clean
 bundle exec jekyll build -d _site
 COMMIT_HASH=`git rev-parse HEAD`
 cd ..
-git checkout -B --track apache/asf-site
+git checkout -B asf-site apache/asf-site
 git pull --rebase
 rm -rf content
 mkdir content
