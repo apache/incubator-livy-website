@@ -41,8 +41,8 @@ get going.
 
 Apache Livy is a service that enables easy interaction with a Spark cluster over a REST interface. It enables easy
 submission of Spark jobs or snippets of Spark code, synchronous or asynchronous result retrieval, as well as Spark
-Context management, all via a simple REST interface or a RPC client library. Apache Livy also simplifies the
-interaction between Spark from application servers, thus enabling the use of Spark for interactive web/mobile
+Context management, all via a simple REST interface or an RPC client library. Apache Livy also simplifies the
+interaction between Spark and application servers, thus enabling the use of Spark for interactive web/mobile
 applications. Additional features include:
 
 * Have long running Spark Contexts that can be used for multiple Spark jobs, by multiple clients
