@@ -57,12 +57,14 @@ and the live website content is stored in the asf-site git branch.
 
 To publish new contents to the website, commit your changes to master, and use the 'publish.sh' shell script.
 
+This assumes an upstream name of apache and committer privileges.
+
 ```
 1. Make your changes
 2. git commit -a -m "My updates"
 3. git push
 4. ./publish.sh
-5. git push origin asf-site
+5. git push apache asf-site
 ```
 
 Within a few minutes, gitpubsub should kick in and you'll be able to see the results at
