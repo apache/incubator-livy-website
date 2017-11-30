@@ -20,7 +20,7 @@ short_name: Livy
 unix_name: livy
 incubator_name: incubator-livy
 incubator_slash_name: incubator/livy
-description: An REST Service for Apache Spark
+description: A REST Service for Apache Spark
 
 download: download
 latest_release: 0.4.0-incubating
