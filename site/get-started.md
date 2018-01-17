@@ -71,3 +71,5 @@ or you can check out the API documentation:
 
 * [REST API]({{ site.baseurl }}/docs/latest/rest-api.html)
 * [Programmatic API]({{ site.baseurl }}/docs/latest/programmatic-api.html)
+
+If you are a NodeJS user, you could also use [node-livy-client](https://www.npmjs.com/package/node-livy-client)
