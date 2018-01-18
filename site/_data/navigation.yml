@@ -24,6 +24,10 @@ topnav:
       url: /docs/latest/rest-api.html
     - title: Programmatic API
       url: /docs/latest/programmatic-api.html
+    - title: JavaDocs
+      url: /docs/latest/api/java/index.html
+    - title: ScalaDocs
+      url: /docs/latest/api/scala/index.html#org.apache.livy.scalaapi.package
     - title: Examples
       url: /examples
 
