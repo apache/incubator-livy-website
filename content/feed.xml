@@ -5,9 +5,55 @@
     <description></description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Jan 2018 16:18:26 -0800</pubDate>
-    <lastBuildDate>Thu, 18 Jan 2018 16:18:26 -0800</lastBuildDate>
+    <pubDate>Mon, 05 Feb 2018 12:12:33 -0800</pubDate>
+    <lastBuildDate>Mon, 05 Feb 2018 12:12:33 -0800</lastBuildDate>
     <generator>Jekyll v3.4.5</generator>
+    
+      <item>
+        <title>Release 0.5.0</title>
+        <description>&lt;!--
+
+--&gt;
+
+&lt;p&gt;New features&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/LIVY-7&quot;&gt;LIVY-7&lt;/a&gt;]
+Added autocompletion to REST API and Scala API for Interactive Sessions&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/LIVY-19&quot;&gt;LIVY-19&lt;/a&gt;]
+Added Spark SQL interpreter for Interactive Sessions&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/LIVY-104&quot;&gt;LIVY-104&lt;/a&gt;]
+Updated Livy project to build using Scala 2.11&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/LIVY-245&quot;&gt;LIVY-245&lt;/a&gt;]
+Added support for shared variables across Jobs&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/LIVY-299&quot;&gt;LIVY-299&lt;/a&gt;]
+Support multi-line output in statements&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;[&lt;a href=&quot;https://issues.apache.org/jira/browse/LIVY-397&quot;&gt;LIVY-397&lt;/a&gt;]
+Support multiple languages in a single Session&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 05 Feb 2018 04:00:00 -0800</pubDate>
+        <link>/news/2018/02/05/release-0.5.0/</link>
+        <guid isPermaLink="true">/news/2018/02/05/release-0.5.0/</guid>
+        
+        <category>v0-5-0-incubating</category>
+        
+        
+        <category>release</category>
+        
+      </item>
     
       <item>
         <title>Release 0.4.0</title>
