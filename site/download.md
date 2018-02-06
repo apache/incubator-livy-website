@@ -43,17 +43,17 @@ limitations under the License.
     <tbody>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (zip)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip">zip</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.md5">MD5</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.sha512">SHA-512</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.asc">ASC</a></td>
+            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip">zip</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.md5">MD5</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.sha512">SHA-512</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (source zip)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip">zip</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.md5">MD5</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.sha512">SHA-512</a></td>
-            <td><a href="http://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.asc">ASC</a></td>
+            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip">zip</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.md5">MD5</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.sha512">SHA-512</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.asc">ASC</a></td>
         </tr>
     </tbody>
 </table>
@@ -81,7 +81,7 @@ Instructions for checking hashes and signatures is indicated on the [Verifying A
 Choose a source distribution in either *tar* or *zip* format,
 and [verify](http://www.apache.org/dyn/closer.cgi#verify)
 using the corresponding *pgp* signature (using the committer file in
-[KEYS](http://www.apache.org/dist/incubator/{{ site.data.project.unix_name }}/KEYS)).
+[KEYS](https://www.apache.org/dist/incubator/{{ site.data.project.unix_name }}/KEYS)).
 If you cannot do that, the *md5* hash file may be used to check that the
 download has completed OK.
 
