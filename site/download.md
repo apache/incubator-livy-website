@@ -58,7 +58,7 @@ limitations under the License.
     </tbody>
 </table>
 
-You can also retrieve the source files from our [git repository](https://github.com/apache/{{ site.data.project.incubator_name }}) by typing:
+You can also retrieve the source files from our git repository by typing:
 
 <pre>
 git clone {{site.data.project.source_repository_mirror}}
