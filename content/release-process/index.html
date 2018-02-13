@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Livy - Release Process</title>
+    
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/apache/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/apache/css/style.css?body=1" rel="stylesheet" type="text/css">
+    <link href="/assets/themes/apache/css/syntax.css" rel="stylesheet"  type="text/css" media="screen" />
+    <!-- Le fav and touch icons -->
+    <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+              <img src="/assets/themes/apache/img/logo.png" width="50">
+              Apache Livy
+          </a>
+        </div>
+
+          <nav class="navbar-collapse collapse" role="navigation">
+              <ul class="nav navbar-nav navbar-right">
+                  
+                  <li id="get-started">
+                      
+                      
+                      <a href="/get-started" target="_self">Get Started</a>
+                      
+                  </li>
+                  
+                  <li id="documentation">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Documentation<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="/docs/latest/rest-api.html" target="_self">REST API</a></li>
+                          
+                          
+                          <li><a href="/docs/latest/programmatic-api.html" target="_self">Programmatic API</a></li>
+                          
+                          
+                          <li><a href="/docs/latest/api/java/index.html" target="_self">JavaDocs</a></li>
+                          
+                          
+                          <li><a href="/docs/latest/api/scala/index.html#org.apache.livy.scalaapi.package" target="_self">ScalaDocs</a></li>
+                          
+                          
+                          <li><a href="/examples" target="_self">Examples</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+                  <li id="community">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="/community" target="_self">Get Involved</a></li>
+                          
+                          
+                          <li><a href="/community-members" target="_self">Project Committers</a></li>
+                          
+                          
+                          <li><a href="/third-party-projects" target="_self">Third-Party Projects</a></li>
+                          
+                          
+                          <li><a href="https://issues.apache.org/jira/browse/LIVY" target="_blank">Issue Tracker</a></li>
+                          
+                          
+                          <li><a href="https://github.com/apache/incubator-livy" target="_blank">Source Code</a></li>
+                          
+                          
+                          <li><a href="https://github.com/apache/incubator-livy-website" target="_blank">Website Source Code</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+                  <li id="apache">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Apache<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+              </ul>
+          </nav><!--/.navbar-collapse -->
+
+      </div>
+    </div>
+
+
+
+
+    <div class="container">
+      
+
+<!--<div class="hero-unit Livy - Release Process">
+  <h1> <small>Release Process</small></h1>
+</div>
+-->
+
+<div class="row">
+  <div class="col-md-12">
+    <!--
+
+-->
+
+<h1 id="preparing-livy-releases">Preparing Livy Releases</h1>
+
+<p><em>Note: This document is a work in progress and is not guaranteed to be a comprehensive release guide</em></p>
+
+<h2 id="overview">Overview</h2>
+
+<p>The release manger for a Apache Livy release is in charge of:</p>
+
+<ol>
+  <li>Cut and update branches and tags</li>
+  <li>Create and publish release distros and artifacts to staging locations</li>
+  <li>Call a vote to authorize release</li>
+  <li>Publish the release (once a vote passes)</li>
+  <li>After the release is complete</li>
+</ol>
+
+<h3 id="prepare-for-release">Prepare for release</h3>
+
+<p>If this is your first release it may be useful to read some of the following:</p>
+
+<ul>
+  <li><a href="http://www.apache.org/dev/#releases">Apache Software Release Documentation</a></li>
+  <li><a href="http://incubator.apache.org/policy/incubation.html#releases">Apache Incubator Podling Release Policies</a></li>
+  <li><a href="https://www.apache.org/dev/release-signing.html">Apache Guide on Signing Releases</a></li>
+  <li><a href="https://spark.apache.org/release-process.html">The Apache Spark Release Guide</a> (for comparison)</li>
+</ul>
+
+<h3 id="cut-and-update-branches-and-tags">Cut and update branches and tags</h3>
+
+<ol>
+  <li>Create new branch (from master if a major/minor version, or branch-X.x for a maintenance version for version X.x) then push it to apache.</li>
+  <li>Update the master branch with to the next version if this is a major/minor release.
+(<a href="https://github.com/apache/incubator-livy/commit/99c385d6436120e3767393ba76dcaa982d7b9929">Example commit</a>)</li>
+  <li>Remove SNAPSHOT from the version on branch then cut rc1 tag.
+(<a href="https://github.com/apache/incubator-livy/commit/b88223a6416ca5419257c92e81c394269a008729">Example commit</a>)</li>
+  <li>After cutting the rc1 tag you can then update the branch with the next maintenance version. (Note: If you do this prior to release any changes between rc’s will be individually cherry-picked)
+(<a href="https://github.com/apache/incubator-livy/commit/dd9a78245e5f67b2c9a6cd62f7bbda2175ac0bc9">Example commit</a>)</li>
+</ol>
+
+<h3 id="create-and-publish-release-distros-and-artifacts-to-staging-locations">Create and publish release distros and artifacts to staging locations</h3>
+
+<ol>
+  <li>Make sure your public key is in the KEY file in the Livy Dist. Directions for creating your key for releases can be found
+<a href="https://www.apache.org/dev/release-signing.html">here</a>.</li>
+  <li>Publish the release archives to the Apache dev dist for dev testing (these will be moved to the release dist after a successful vote).
+    <ol>
+      <li>Set env variables as described in <code class="highlighter-rouge">dev/release-build.sh</code> (or utilize the script’s prompts).</li>
+      <li>Run <code class="highlighter-rouge">dev/release-build.sh package</code> (Note: You may need to run <code class="highlighter-rouge">GPG_TTY=$(tty); export GPG_TTY</code> for the script to work).</li>
+      <li>Double check the distros has been uploaded to the <a href="https://dist.apache.org/repos/dist/dev/incubator/livy">dev dist</a>.</li>
+    </ol>
+  </li>
+  <li>Use <code class="highlighter-rouge">dev/release-build.sh publish-release</code> to push the release artifacts to the apache staging repo
+(Note: Make sure sha1 is installed before running the script). Double check that the artifacts were published successfully by checking the
+<a href="https://repository.apache.org/#stagingRepositories">staging repo</a>.</li>
+</ol>
+
+<h3 id="call-a-vote-to-authorize-release">Call a vote to authorize release</h3>
+
+<ol>
+  <li>Email the Livy dev mailing list to call for vote on the release candidate and make sure to note that if it passes it will go to an official vote on the Incubator general mailing list.
+(<a href="https://www.mail-archive.com/dev@livy.incubator.apache.org/msg00294.html">Example email</a>)</li>
+  <li>If the vote passes email the Incubator general list to call for a PMC vote. 
+(<a href="https://www.mail-archive.com/general@incubator.apache.org/msg62366.html">Example email</a>).
+If the vote fails, address the issues raised and cut a new rc with the required fixes.</li>
+</ol>
+
+<h3 id="publish-the-release-once-a-vote-passes">Publish the release (once a vote passes)</h3>
+
+<ol>
+  <li>Go to the <a href="https://repository.apache.org/#stagingRepositories">staging repo</a>, select the livy repo from the <code class="highlighter-rouge">publish-release</code> step above 
+and click the “release” button at the top of the page to release the new Livy version artifacts.</li>
+  <li>Move the contents of the <a href="https://dist.apache.org/repos/dist/dev/incubator/livy">dev dist</a> to the 
+<a href="https://dist.apache.org/repos/dist/release/incubator/livy">release dist</a> (removing the rc# from the folder name).
+    <ol>
+      <li>Example steps
+        <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>svn co https://dist.apache.org/repos/dist/dev/incubator/livy/
+<span class="gp">$ </span><span class="nb">export </span><span class="nv">SVN_EDITOR</span><span class="o">=</span>vim
+<span class="gp">$ </span>svn mv https://dist.apache.org/repos/dist/dev/incubator/livy/0.5.0-incubating-rc2/ https://dist.apache.org/repos/dist/release/incubator/livy/0.5.0-incubating/
+</code></pre>
+        </div>
+      </li>
+      <li>If you updated the KEYS file during this release make sure you also copy that as well.</li>
+    </ol>
+  </li>
+  <li>Checkout the rc git tag and recommit it without the rc# (Example below)
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git tag -a v0.5.0-incubating -m <span class="s2">"Apache Livy 0.5.0-incubating"</span>
+<span class="gp">$ </span>git push --delete apache v0.5.0-incubating-rc1
+</code></pre>
+    </div>
+  </li>
+  <li>Announce the release to the Incubator general, Livy dev, and Livy user mailing lists 
+(<a href="Incubator general, Livy dev and Livy user">Example Email</a>), if you want you can complete the website update step below to include links in the email.</li>
+</ol>
+
+<h3 id="after-the-release-is-complete">After the release is complete</h3>
+<ol>
+  <li>Open a PR to update the website with the new latest version number, release notes, and a copy of the Docs built using the new release.</li>
+  <li>If there were any non-blocking issues raised during the vote make sure there are open JIRAs to address them in the next release.</li>
+</ol>
+
+  </div>
+</div>
+
+
+      <hr>
+      <footer>
+        <!-- <p>&copy; 2018 </p>-->
+        <footer class="site-footer">
+    <div class="wrapper">
+        <div class="footer-col-wrapper">
+            
+            Apache Livy is an effort undergoing <a href="https://incubator.apache.org/index.html">Incubation</a>
+            at The Apache Software Foundation (ASF), sponsored by the Incubator. Incubation is required of all newly
+            accepted projects until a further review indicates that the infrastructure, communications, and decision
+            making process have stabilized in a manner consistent with other successful ASF projects. While incubation
+            status is not necessarily a reflection of the completeness or stability of the code, it does indicate that
+            the project has yet to be fully endorsed by the ASF.
+            <hr>
+            
+            <div style="text-align:center;">
+                
+                <div style="margin-top: 20px; margin-bottom: 20px;">
+                    <a href="http://incubator.apache.org"><img src="/assets/themes/apache/img/egg-logo.png"
+                                                               alt="Apache Incubator"
+                                                               height="30%" width="30%"/></a>
+                </div>
+                
+                <div>
+                    Copyright &copy; 2017 <a href="http://www.apache.org">The Apache Software Foundation</a>.
+                    Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
+                    2.0</a>.
+                    <br>
+                    
+                    Apache, the Apache Feather logo, and the Apache Incubator project logo are trademarks of The Apache
+                    Software Foundation.
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+    <script src="/assets/themes/apache/jquery/jquery-2.1.1.min.js"></script>
+
+    <script src="/assets/themes/apache/bootstrap/js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
+
