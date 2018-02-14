@@ -58,14 +58,6 @@ limitations under the License.
     </tbody>
 </table>
 
-You can also retrieve the source files from our git repository by typing:
-
-<pre>
-git clone {{site.data.project.source_repository_mirror}}
-cd {{site.data.project.github_project_name}}
-git checkout -b tags/v{{site.data.project.latest_release}} v{{site.data.project.latest_release}}
-</pre>
-
 ### Release Notes
 
 Release notes for the current and previous releases can be found in the [release history]({{ site.baseurl }}/history)
