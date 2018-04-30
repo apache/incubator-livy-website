@@ -40,7 +40,7 @@ builds of Spark. To run Livy with local sessions, first export these variables:
 
 Then start the server with:
 
-`./bin/livy-server`
+`./bin/livy-server start`
 
 Livy uses the Spark configuration under `SPARK_HOME` by default. You can override the Spark configuration by setting the
 `SPARK_CONF_DIR` environment variable before starting Livy.
