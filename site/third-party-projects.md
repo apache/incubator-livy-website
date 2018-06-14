@@ -34,3 +34,5 @@ Please open a pull request [here]({{ site.data.project.website_repository_mirror
 
 * [node-livy-client](https://www.npmjs.com/package/node-livy-client) - Livy client written in NodeJS
 
+* [spark-sql-server](https://github.com/maropu/spark-sql-server) - A Spark SQL server based on the PostgreSQL V3 protocol
+
