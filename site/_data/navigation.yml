@@ -51,12 +51,14 @@ topnav:
   subcategories:
   - title: Apache Software Foundation
     url: http://www.apache.org/foundation/how-it-works.html
-  - title: Apache License
+  - title: License
     url: http://www.apache.org/licenses/
   - title: Sponsorship
     url: http://www.apache.org/foundation/sponsorship
   - title: Thanks
     url: http://www.apache.org/foundation/thanks.html
+  - title: Security
+    url: http://www.apache.org/security/
 # TODO: Create Privacy Policy Page
 #  - title: Privacy Policy
 #    url: /privacy-policy
