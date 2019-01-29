@@ -21,14 +21,14 @@
 - name: Alex Bozarth
   apacheId: ajbozarth
   githubId: ajbozarth
-  role: Committer
+  role: PMC
   org: IBM
 
 - name: Alex Man
   apacheId:
   githubId: alex-the-man
   role: PMC
-  org: Independant
+  org: Independent
 
 - name: Bikas Saha
   apacheId: bikas
@@ -71,6 +71,12 @@
   githubId: vanzin
   role: PMC
   org: Cloudera
+
+- name: Marco Gaido
+  apacheId: mgaido
+  githubId: mgaido91
+  role: PMC
+  org: Independent
 
 - name: Saisai Shao
   apacheId: jshao
