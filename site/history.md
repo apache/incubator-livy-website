@@ -39,7 +39,7 @@ New features
 
 * Livy 0.6.0 now requires Java 8, Scala 2.11 and Spark >= 2.2.0.
 
-* Added support for all currently versions of Spark (2.2.x to 2.4.x).
+* Added support for all current versions of Spark (2.2.x to 2.4.x).
 
 * [<a href="https://issues.apache.org/jira/browse/LIVY-489">LIVY-489</a>]
   New, experimental Hive-compatible JDBC / ODBC server.
