@@ -32,6 +32,25 @@ For a full list of releases, see
 Downloads are available on the
 [downloads page]({{ site.baseurl }}/download).
 
+## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.5.0-incubating">0.6.0-incubating</a> / 2019-04-01
+{: #v0-6-0-incubating}
+
+New features
+
+* Livy 0.6.0 now requires Java 8, Scala 2.11 and Spark >= 2.2.0.
+
+* Added support for all currently versions of Spark (2.2.x to 2.4.x).
+
+* [<a href="https://issues.apache.org/jira/browse/LIVY-489">LIVY-489</a>]
+  New, experimental Hive-compatible JDBC / ODBC server.
+
+* [<a href="https://issues.apache.org/jira/browse/LIVY-551">LIVY-551</a>]
+  Impersonation support for all REST endpoints, for better integration with proxy servers.
+
+* [<a href="https://issues.apache.org/jira/browse/LIVY-41">LIVY-41</a>]
+  Session naming support.
+
+
 ## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.5.0-incubating">0.5.0-incubating</a> / 2018-02-05
 {: #v0-5-0-incubating}
 

@@ -18,12 +18,13 @@
 name: Apache Livy
 short_name: Livy
 unix_name: livy
+pkg_name: apache-livy
 incubator_name: incubator-livy
 incubator_slash_name: incubator/livy
 description: A REST Service for Apache Spark
 
 download: download
-latest_release: 0.5.0-incubating
+latest_release: 0.6.0-incubating
 
 dev_list: dev@livy.incubator.apache.org
 dev_list_subscribe: dev-subscribe@livy.incubator.apache.org
