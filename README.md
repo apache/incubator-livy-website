@@ -73,4 +73,4 @@ Within a few minutes, gitpubsub should kick in and you'll be able to see the res
 ## Adding contributors
 
 To add a contributor to the project, or to modify existing contributors, edit `site/_data/contributors.yml`.
-The [project members](http://localhost:4000/community-members/) list will re-generate.
+The project members list will re-generate.

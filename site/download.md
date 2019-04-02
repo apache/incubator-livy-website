@@ -35,7 +35,6 @@ limitations under the License.
         <tr>
             <th><b>Name</b></th>
             <th><b>Archive</b></th>
-            <th><b>MD5</b></th>
             <th><b>SHA-512</b></th>
             <th><b>signature</b></th>
         </tr>
@@ -43,17 +42,15 @@ limitations under the License.
     <tbody>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (zip)</td>
-            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip">zip</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.md5">MD5</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.sha512">SHA-512</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.zip.asc">ASC</a></td>
+            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-bin.zip">zip</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-bin.zip.sha512">SHA-512</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-bin.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (source zip)</td>
-            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip">zip</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.md5">MD5</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.sha512">SHA-512</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.zip.asc">ASC</a></td>
+            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-src.zip">zip</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-src.zip.sha512">SHA-512</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-src.zip.asc">ASC</a></td>
         </tr>
     </tbody>
 </table>
@@ -70,11 +67,10 @@ All previous releases of {{ site.data.project.name }} can be found in the [archi
 
 Instructions for checking hashes and signatures is indicated on the [Verifying Apache Software Foundation Releases](http://www.apache.org/info/verification.html) page.
 
-Choose a source distribution in either *tar* or *zip* format,
-and [verify](http://www.apache.org/dyn/closer.cgi#verify)
-using the corresponding *pgp* signature (using the committer file in
+Download the desired archive, and [verify](http://www.apache.org/dyn/closer.cgi#verify)
+using the corresponding *pgp* signature (using the public keys available in
 [KEYS](https://www.apache.org/dist/incubator/{{ site.data.project.unix_name }}/KEYS)).
-If you cannot do that, the *md5* hash file may be used to check that the
+If you cannot do that, the *sha512* hash file may be used to check that the
 download has completed OK.
 
 For fast downloads, current source distributions are hosted on mirror servers;

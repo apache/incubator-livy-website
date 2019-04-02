@@ -34,13 +34,13 @@
   apacheId: bikas
   githubId: bikassaha
   role: Mentor
-  org: Hortonworks
+  org: Cloudera
 
 - name: Brock Noland
   apacheId: brock
   githubId: brockn
   role: Mentor
-  org: StreamSets
+  org:
 
 - name: Jean-Baptiste Onofré
   apacheId: jbonofre
@@ -52,7 +52,7 @@
   apacheId: zjffdu
   githubId: zjffdu
   role: PMC
-  org: Hortonworks
+  org:
 
 - name: Kostas Sakellis
   apacheId: kostas
@@ -82,6 +82,6 @@
   apacheId: jshao
   githubId: jerryshao
   role: PMC
-  org: Hortonworks
+  org: Tencent
 
 # End contributors.yml
