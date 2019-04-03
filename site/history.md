@@ -32,7 +32,7 @@ For a full list of releases, see
 Downloads are available on the
 [downloads page]({{ site.baseurl }}/download).
 
-## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.5.0-incubating">0.6.0-incubating</a> / 2019-04-01
+## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.6.0-incubating">0.6.0-incubating</a> / 2019-04-01
 {: #v0-6-0-incubating}
 
 New features
