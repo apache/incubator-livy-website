@@ -32,6 +32,24 @@ For a full list of releases, see
 Downloads are available on the
 [downloads page]({{ site.baseurl }}/download).
 
+## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.7.0-incubating">0.7.0-incubating</a> / 2020-02-02
+{: #v0-7-0-incubating}
+
+New features
+
+* Livy 0.7.0 now requires Java 8, Scala 2.11 and Spark >= 2.2.0. With 0.7.0, JDBC/ODBC feature now becomes GA.
+
+* Added support for all current versions of Spark (2.2.x to 2.4.x).
+
+* [<a href="https://issues.apache.org/jira/browse/LIVY-575">LIVY-575</a>]
+  Hive-compatible JDBC / ODBC server GA.
+
+* [<a href="https://issues.apache.org/jira/browse/LIVY-678">LIVY-678</a>]
+  Add LDAP authorization support for REST, JDBC interface.
+
+* With various bugs fixed, details can be checked [<a href="https://issues.apache.org/jira/projects/LIVY/versions/12345179">here</a>].
+
+
 ## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.6.0-incubating">0.6.0-incubating</a> / 2019-04-01
 {: #v0-6-0-incubating}
 
