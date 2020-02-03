@@ -1,0 +1,968 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Livy Docs - REST API</title>
+    
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/apache/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/apache/css/style.css?body=1" rel="stylesheet" type="text/css">
+    <link href="/assets/themes/apache/css/syntax.css" rel="stylesheet"  type="text/css" media="screen" />
+    <!-- Le fav and touch icons -->
+    <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+              <img src="/assets/themes/apache/img/logo.png" width="50">
+              Apache Livy
+            <span class="version">0.7.0-incubating</span>
+          </a>
+        </div>
+
+          <nav class="navbar-collapse collapse" role="navigation">
+              <ul class="nav navbar-nav navbar-right">
+                  
+                  <li id="documentation">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Documentation<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="rest-api.html" target="_self">REST API</a></li>
+                          
+                          
+                          <li><a href="programmatic-api.html" target="_self">Programmatic API</a></li>
+                          
+                          
+                          <li><a href="api/java/index.html" target="_self">Java API Docs</a></li>
+                          
+                          
+                          <li><a href="api/scala/index.html#org.apache.livy.scalaapi.package" target="_self">Scala API Docs</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+                  <li id="apache">
+                      
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Apache<b class="caret"></b></a>
+                      <ul class="dropdown-menu dropdown-left">
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/how-it-works.html" target="_blank">Apache Software Foundation</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/licenses/" target="_blank">Apache License</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/sponsorship" target="_blank">Sponsorship</a></li>
+                          
+                          
+                          <li><a href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a></li>
+                          
+                      </ul>
+                      
+                  </li>
+                  
+              </ul>
+          </nav><!--/.navbar-collapse -->
+
+      </div>
+    </div>
+
+
+    <div class="container">
+      
+
+<!--<div class="hero-unit Livy Docs - REST API">
+  <h1> <small>REST API</small></h1>
+</div>
+-->
+
+<div class="row">
+  <div class="col-md-12">
+    <!--
+
+-->
+
+<h2 id="rest-api">REST API</h2>
+
+<h3 id="get-sessions">GET /sessions</h3>
+
+<p>Returns all the active interactive sessions.</p>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>from</td>
+    <td>The start index to fetch sessions</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>Number of sessions to fetch</td>
+    <td>int</td>
+  </tr>
+</table>
+
+<h4 id="response-body">Response Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>from</td>
+    <td>The start index to fetch sessions</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>total</td>
+    <td>Number of sessions to fetch</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>sessions</td>
+    <td><a href="#session">Session</a> list</td>
+    <td>list</td>
+  </tr>
+</table>
+
+<h3 id="post-sessions">POST /sessions</h3>
+
+<p>Creates a new interactive Scala, Python, or R shell in the cluster.</p>
+
+<h4 id="request-body">Request Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>kind</td>
+    <td>The session kind<sup><a href="#footnote1">[1]</a></sup></td>
+    <td><a href="#session-kind">session kind</a></td>
+  </tr>
+  <tr>
+    <td>proxyUser</td>
+    <td>User to impersonate when starting the session</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>jars</td>
+    <td>jars to be used in this session</td>
+    <td>List of string</td>
+  </tr>
+  <tr>
+    <td>pyFiles</td>
+    <td>Python files to be used in this session</td>
+    <td>List of string</td>
+  </tr>
+  <tr>
+    <td>files</td>
+    <td>files to be used in this session</td>
+    <td>List of string</td>
+  </tr>
+  <tr>
+    <td>driverMemory</td>
+    <td>Amount of memory to use for the driver process</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>driverCores</td>
+    <td>Number of cores to use for the driver process</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>executorMemory</td>
+    <td>Amount of memory to use per executor process</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>executorCores</td>
+    <td>Number of cores to use for each executor</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>numExecutors</td>
+    <td>Number of executors to launch for this session</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>archives</td>
+    <td>Archives to be used in this session</td>
+    <td>List of string</td>
+  </tr>
+  <tr>
+    <td>queue</td>
+    <td>The name of the YARN queue to which submitted</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>The name of this session</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>conf</td>
+    <td>Spark configuration properties</td>
+    <td>Map of key=val</td>
+  </tr>
+  <tr>
+    <td>heartbeatTimeoutInSecond</td>
+    <td>Timeout in second to which session be orphaned</td>
+    <td>int</td>
+  </tr>
+</table>
+
+<p><a id="footnote1">1</a>: Starting with version 0.5.0-incubating this field is not required. To be
+compatible with previous versions users can still specify this with spark, pyspark or sparkr,
+implying that the submitted code snippet is the corresponding kind.</p>
+
+<h4 id="response-body-1">Response Body</h4>
+
+<p>The created <a href="#session">Session</a>.</p>
+
+<h3 id="get-sessionssessionid">GET /sessions/{sessionId}</h3>
+
+<p>Returns the session information.</p>
+
+<h4 id="response-body-2">Response Body</h4>
+
+<p>The <a href="#session">Session</a>.</p>
+
+<h3 id="get-sessionssessionidstate">GET /sessions/{sessionId}/state</h3>
+
+<p>Returns the state of session</p>
+
+<h4 id="response">Response</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>id</td>
+    <td>Session id</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>state</td>
+    <td>The current state of session</td>
+    <td>string</td>
+  </tr>
+</table>
+
+<h3 id="delete-sessionssessionid">DELETE /sessions/{sessionId}</h3>
+
+<p>Kills the <a href="#session">Session</a> job.</p>
+
+<h3 id="get-sessionssessionidlog">GET /sessions/{sessionId}/log</h3>
+
+<p>Gets the log lines from this session.</p>
+
+<h4 id="request-parameters-1">Request Parameters</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>from</td>
+    <td>Offset</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>Max number of log lines to return</td>
+    <td>int</td>
+  </tr>
+</table>
+
+<h4 id="response-body-3">Response Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>id</td>
+    <td>The session id</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>from</td>
+    <td>Offset from start of log</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>Max number of log lines</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>log</td>
+    <td>The log lines</td>
+    <td>list of strings</td>
+  </tr>
+</table>
+
+<h3 id="get-sessionssessionidstatements">GET /sessions/{sessionId}/statements</h3>
+
+<p>Returns all the statements in a session.</p>
+
+<h4 id="response-body-4">Response Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>statements</td>
+    <td><a href="#statement">statement</a> list</td>
+    <td>list</td>
+  </tr>
+</table>
+
+<h3 id="post-sessionssessionidstatements">POST /sessions/{sessionId}/statements</h3>
+
+<p>Runs a statement in a session.</p>
+
+<h4 id="request-body-1">Request Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>code</td>
+    <td>The code to execute</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>kind</td>
+    <td>The kind of code to execute<sup><a href="#footnote2">[2]</a></sup></td>
+    <td><a href="#session-kind">code kind</a></td>
+  </tr>
+</table>
+
+<p><a id="footnote2">2</a>: If session kind is not specified or the submitted code is not the kind
+specified in session creation, this field should be filled with correct kind.
+Otherwise Livy will use kind specified in session creation as the default code kind.</p>
+
+<h4 id="response-body-5">Response Body</h4>
+
+<p>The <a href="#statement">statement</a> object.</p>
+
+<h3 id="get-sessionssessionidstatementsstatementid">GET /sessions/{sessionId}/statements/{statementId}</h3>
+
+<p>Returns a specified statement in a session.</p>
+
+<h4 id="response-body-6">Response Body</h4>
+
+<p>The <a href="#statement">statement</a> object.</p>
+
+<h3 id="post-sessionssessionidstatementsstatementidcancel">POST /sessions/{sessionId}/statements/{statementId}/cancel</h3>
+
+<p>Cancel the specified statement in this session.</p>
+
+<h4 id="response-body-7">Response Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>msg</td>
+    <td>is always "canceled"</td>
+    <td>string</td>
+  </tr>
+</table>
+
+<h3 id="post-sessionssessionidcompletion">POST /sessions/{sessionId}/completion</h3>
+
+<p>Runs a statement in a session.</p>
+
+<h4 id="request-body-2">Request Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>code</td>
+    <td>The code for which completion proposals are requested</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>kind</td>
+    <td>The kind of code to execute<sup><a href="#footnote2">[2]</a></sup></td>
+    <td><a href="#session-kind">code kind</a></td>
+  </tr>
+  <tr>
+    <td>cursor</td>
+    <td>cursor position to get proposals</td>
+    <td>string</td>
+  </tr>
+</table>
+
+<h4 id="response-body-8">Response Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>candidates</td>
+    <td>Code completions proposals</td>
+    <td>array[string]</td>
+  </tr>
+</table>
+
+<h3 id="get-batches">GET /batches</h3>
+
+<p>Returns all the active batch sessions.</p>
+
+<h4 id="request-parameters-2">Request Parameters</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>from</td>
+    <td>The start index to fetch sessions</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>Number of sessions to fetch</td>
+    <td>int</td>
+  </tr>
+</table>
+
+<h4 id="response-body-9">Response Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>from</td>
+    <td>The start index of fetched sessions</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>total</td>
+    <td>Number of sessions fetched</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>sessions</td>
+    <td><a href="#batch">Batch</a> list</td>
+    <td>list</td>
+  </tr>
+</table>
+
+<h3 id="post-batches">POST /batches</h3>
+
+<h4 id="request-body-3">Request Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>file</td>
+    <td>File containing the application to execute</td>
+    <td>path (required)</td>
+  </tr>
+  <tr>
+    <td>proxyUser</td>
+    <td>User to impersonate when running the job</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>className</td>
+    <td>Application Java/Spark main class</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>args</td>
+    <td>Command line arguments for the application</td>
+    <td>list of strings</td>
+  </tr>
+  <tr>
+    <td>jars</td>
+    <td>jars to be used in this session</td>
+    <td>list of strings</td>
+  </tr>
+  <tr>
+    <td>pyFiles</td>
+    <td>Python files to be used in this session</td>
+    <td>list of strings</td>
+  </tr>
+  <tr>
+    <td>files</td>
+    <td>files to be used in this session</td>
+    <td>list of strings</td>
+  </tr>
+  <tr>
+    <td>driverMemory</td>
+    <td>Amount of memory to use for the driver process</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>driverCores</td>
+    <td>Number of cores to use for the driver process</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>executorMemory</td>
+    <td>Amount of memory to use per executor process</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>executorCores</td>
+    <td>Number of cores to use for each executor</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>numExecutors</td>
+    <td>Number of executors to launch for this session</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>archives</td>
+    <td>Archives to be used in this session</td>
+    <td>List of string</td>
+  </tr>
+  <tr>
+    <td>queue</td>
+    <td>The name of the YARN queue to which submitted</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>The name of this session</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>conf</td>
+    <td>Spark configuration properties</td>
+    <td>Map of key=val</td>
+  </tr>
+</table>
+
+<h4 id="response-body-10">Response Body</h4>
+
+<p>The created <a href="#batch">Batch</a> object.</p>
+
+<h3 id="get-batchesbatchid">GET /batches/{batchId}</h3>
+
+<p>Returns the batch session information.</p>
+
+<h4 id="response-body-11">Response Body</h4>
+
+<p>The <a href="#batch">Batch</a>.</p>
+
+<h3 id="get-batchesbatchidstate">GET /batches/{batchId}/state</h3>
+
+<p>Returns the state of batch session</p>
+
+<h4 id="response-1">Response</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>id</td>
+    <td>Batch session id</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>state</td>
+    <td>The current state of batch session</td>
+    <td>string</td>
+  </tr>
+</table>
+
+<h3 id="delete-batchesbatchid">DELETE /batches/{batchId}</h3>
+
+<p>Kills the <a href="#batch">Batch</a> job.</p>
+
+<h3 id="get-batchesbatchidlog">GET /batches/{batchId}/log</h3>
+
+<p>Gets the log lines from this batch.</p>
+
+<h4 id="request-parameters-3">Request Parameters</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>from</td>
+    <td>Offset</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>Max number of log lines to return</td>
+    <td>int</td>
+  </tr>
+</table>
+
+<h4 id="response-body-12">Response Body</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>id</td>
+    <td>The batch id</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>from</td>
+    <td>Offset from start of log</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>Number of log lines</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>log</td>
+    <td>The log lines</td>
+    <td>list of strings</td>
+  </tr>
+</table>
+
+<h2 id="rest-objects">REST Objects</h2>
+
+<h3 id="session">Session</h3>
+
+<p>A session represents an interactive shell.</p>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>id</td>
+    <td>The session id</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>appId</td>
+    <td>The application id of this session</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>owner</td>
+    <td>Remote user who submitted this session</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>proxyUser</td>
+    <td>User to impersonate when running</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>kind</td>
+    <td>Session kind (spark, pyspark, sparkr, or sql)</td>
+    <td><a href="#session-kind">session kind</a></td>
+  </tr>
+  <tr>
+    <td>log</td>
+    <td>The log lines</td>
+    <td>list of strings</td>
+  </tr>
+  <tr>
+    <td>state</td>
+    <td>The session state</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>appInfo</td>
+    <td>The detailed application info</td>
+    <td>Map of key=val</td>
+  </tr>
+</table>
+
+<h4 id="session-state">Session State</h4>
+
+<table class="table">
+  <tr><th>Value</th><th>Description</th></tr>
+  <tr>
+    <td>not_started</td>
+    <td>Session has not been started</td>
+  </tr>
+  <tr>
+    <td>starting</td>
+    <td>Session is starting</td>
+  </tr>
+  <tr>
+    <td>idle</td>
+    <td>Session is waiting for input</td>
+  </tr>
+  <tr>
+    <td>busy</td>
+    <td>Session is executing a statement</td>
+  </tr>
+  <tr>
+    <td>shutting_down</td>
+    <td>Session is shutting down</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>Session errored out</td>
+  </tr>
+  <tr>
+    <td>dead</td>
+    <td>Session has exited</td>
+  </tr>
+  <tr>
+    <td>killed</td>
+    <td>Session has been killed</td>
+  </tr>
+  <tr>
+    <td>success</td>
+    <td>Session is successfully stopped</td>
+  </tr>
+</table>
+
+<h4 id="session-kind">Session Kind</h4>
+
+<table class="table">
+  <tr><th>Value</th><th>Description</th></tr>
+  <tr>
+    <td>spark</td>
+    <td>Interactive Scala Spark session</td>
+  </tr>
+  <tr>
+    <td><a href="#pyspark">pyspark</a></td>
+    <td>Interactive Python Spark session</td>
+  </tr>
+  <tr>
+    <td>sparkr</td>
+    <td>Interactive R Spark session</td>
+  </tr>
+  <tr>
+    <td>sql</td>
+    <td>Interactive SQL Spark session</td>
+  </tr>
+  </table>
+
+<p>Starting with version 0.5.0-incubating, each session can support all four Scala, Python and R
+interpreters with newly added SQL interpreter. The <code class="highlighter-rouge">kind</code> field in session creation 
+is no longer required, instead users should specify code kind (spark, pyspark, sparkr or sql) 
+during statement submission.</p>
+
+<p>To be compatible with previous versions, users can still specify <code class="highlighter-rouge">kind</code> in session creation,
+while ignoring <code class="highlighter-rouge">kind</code> in statement submission. Livy will then use this session
+<code class="highlighter-rouge">kind</code> as default kind for all the submitted statements.</p>
+
+<p>If users want to submit code other than default <code class="highlighter-rouge">kind</code> specified in session creation, users
+need to specify code kind (spark, pyspark, sparkr or sql) during statement submission.</p>
+
+<h4 id="pyspark">pyspark</h4>
+
+<p>To change the Python executable the session uses, Livy reads the path from environment variable
+<code class="highlighter-rouge">PYSPARK_PYTHON</code> (Same as pyspark).</p>
+
+<p>Starting with version 0.5.0-incubating, session kind “pyspark3” is removed, instead users require
+to set <code class="highlighter-rouge">PYSPARK_PYTHON</code> to python3 executable.</p>
+
+<p>Like pyspark, if Livy is running in <code class="highlighter-rouge">local</code> mode, just set the environment variable.
+If the session is running in <code class="highlighter-rouge">yarn-cluster</code> mode, please set
+<code class="highlighter-rouge">spark.yarn.appMasterEnv.PYSPARK_PYTHON</code> in SparkConf so the environment variable is passed to
+the driver.</p>
+
+<h3 id="statement">Statement</h3>
+
+<p>A statement represents the result of an execution statement.</p>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>id</td>
+    <td>The statement id</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>code</td>
+    <td>The execution code</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>state</td>
+    <td>The execution state</td>
+    <td>statement state</td>
+  </tr>
+  <tr>
+    <td>output</td>
+    <td>The execution output</td>
+    <td>statement output</td>
+  </tr>
+  <tr>
+     <td>progress</td>
+     <td>The execution progress</td>
+     <td>double</td>
+  </tr>
+  <tr>
+     <td>started</td>
+     <td>The start time of statement code</td>
+     <td>long</td>
+  </tr>
+  <tr>
+     <td>completed</td>
+     <td>The complete time of statement code</td>
+     <td>long</td>
+  </tr> 
+</table>
+
+<h4 id="statement-state">Statement State</h4>
+
+<table class="table">
+  <tr><th>Value</th><th>Description</th></tr>
+  <tr>
+    <td>waiting</td>
+    <td>Statement is enqueued but execution hasn't started</td>
+  </tr>
+  <tr>
+    <td>running</td>
+    <td>Statement is currently running</td>
+  </tr>
+  <tr>
+    <td>available</td>
+    <td>Statement has a response ready</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>Statement failed</td>
+  </tr>
+  <tr>
+    <td>cancelling</td>
+    <td>Statement is being cancelling</td>
+  </tr>
+  <tr>
+    <td>cancelled</td>
+    <td>Statement is cancelled</td>
+  </tr>
+</table>
+
+<h4 id="statement-output">Statement Output</h4>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>status</td>
+    <td>Execution status</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>execution_count</td>
+    <td>A monotonically increasing number</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>Statement output</td>
+    <td>An object mapping a mime type to the result. If the mime type is
+    ``application/json``, the value is a JSON value.</td>
+  </tr>
+</table>
+
+<h3 id="batch">Batch</h3>
+
+<table class="table">
+  <tr><th>Name</th><th>Description</th><th>Type</th></tr>
+  <tr>
+    <td>id</td>
+    <td>The session id</td>
+    <td>int</td>
+  </tr>
+  <tr>
+    <td>appId</td>
+    <td>The application id of this session</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>appInfo</td>
+    <td>The detailed application info</td>
+    <td>Map of key=val</td>
+  </tr>
+  <tr>
+    <td>log</td>
+    <td>The log lines</td>
+    <td>list of strings</td>
+  </tr>
+  <tr>
+    <td>state</td>
+    <td>The batch state</td>
+    <td>string</td>
+  </tr>
+</table>
+
+<h3 id="proxy-user---doas-support">Proxy User - <code class="highlighter-rouge">doAs</code> support</h3>
+<p>If superuser support is configured, Livy supports the <code class="highlighter-rouge">doAs</code> query parameter
+to specify the user to impersonate. The <code class="highlighter-rouge">doAs</code> query parameter can be used
+on any supported REST endpoint described above to perform the action as the
+specified user. If both <code class="highlighter-rouge">doAs</code> and <code class="highlighter-rouge">proxyUser</code> are specified during session
+or batch creation, the <code class="highlighter-rouge">doAs</code> parameter takes precedence.</p>
+
+  </div>
+</div>
+
+
+      <hr>
+      <footer>
+        <!-- <p>&copy; 2020 </p>-->
+        <footer class="site-footer">
+    <div class="wrapper">
+        <div class="footer-col-wrapper">
+            
+            Apache Livy is an effort undergoing <a href="https://incubator.apache.org/index.html">Incubation</a>
+            at The Apache Software Foundation (ASF), sponsored by the Incubator. Incubation is required of all newly
+            accepted projects until a further review indicates that the infrastructure, communications, and decision
+            making process have stabilized in a manner consistent with other successful ASF projects. While incubation
+            status is not necessarily a reflection of the completeness or stability of the code, it does indicate that
+            the project has yet to be fully endorsed by the ASF.
+            <hr>
+            
+            <div style="text-align:center;">
+                
+                <div style="margin-top: 20px; margin-bottom: 20px;">
+                    <a href="http://incubator.apache.org"><img src="/assets/themes/apache/img/egg-logo.png"
+                                                               alt="Apache Incubator"
+                                                               height="30%" width="30%"/></a>
+                </div>
+                
+                <div>
+                    Copyright &copy; 2017 <a href="http://www.apache.org">The Apache Software Foundation</a>.
+                    Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
+                    2.0</a>.
+                    <br>
+                    
+                    Apache, the Apache Feather logo, and the Apache Incubator project logo are trademarks of The Apache
+                    Software Foundation.
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+      </footer>
+    </div>
+
+    <script src="/assets/themes/apache/jquery/jquery-2.1.1.min.js"></script>
+
+    <script src="/assets/themes/apache/bootstrap/js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
+
