@@ -201,12 +201,12 @@
 <a href="https://www.apache.org/dev/release-signing.html">here</a>.</li>
   <li>Publish the release archives to the Apache dev dist for dev testing (these will be moved to the release dist after a successful vote).
     <ol>
-      <li>Set env variables as described in <code class="highlighter-rouge">dev/release-build.sh</code> (or utilize the script’s prompts).</li>
-      <li>Run <code class="highlighter-rouge">dev/release-build.sh package</code> (Note: You may need to run <code class="highlighter-rouge">GPG_TTY=$(tty); export GPG_TTY</code> for the script to work).</li>
+      <li>Set env variables as described in <code class="language-plaintext highlighter-rouge">dev/release-build.sh</code> (or utilize the script’s prompts).</li>
+      <li>Run <code class="language-plaintext highlighter-rouge">dev/release-build.sh package</code> (Note: You may need to run <code class="language-plaintext highlighter-rouge">GPG_TTY=$(tty); export GPG_TTY</code> for the script to work).</li>
       <li>Double check the distros has been uploaded to the <a href="https://dist.apache.org/repos/dist/dev/incubator/livy">dev dist</a>.</li>
     </ol>
   </li>
-  <li>Use <code class="highlighter-rouge">dev/release-build.sh publish-release</code> to push the release artifacts to the apache staging repo
+  <li>Use <code class="language-plaintext highlighter-rouge">dev/release-build.sh publish-release</code> to push the release artifacts to the apache staging repo
 (Note: Make sure sha1 is installed before running the script). Double check that the artifacts were published successfully by checking the
 <a href="https://repository.apache.org/#stagingRepositories">staging repo</a>.</li>
 </ol>
@@ -224,26 +224,24 @@ If the vote fails, address the issues raised and cut a new rc with the required 
 <h3 id="publish-the-release-once-a-vote-passes">Publish the release (once a vote passes)</h3>
 
 <ol>
-  <li>Go to the <a href="https://repository.apache.org/#stagingRepositories">staging repo</a>, select the livy repo from the <code class="highlighter-rouge">publish-release</code> step above 
+  <li>Go to the <a href="https://repository.apache.org/#stagingRepositories">staging repo</a>, select the livy repo from the <code class="language-plaintext highlighter-rouge">publish-release</code> step above 
 and click the “release” button at the top of the page to release the new Livy version artifacts.</li>
   <li>Move the contents of the <a href="https://dist.apache.org/repos/dist/dev/incubator/livy">dev dist</a> to the 
 <a href="https://dist.apache.org/repos/dist/release/incubator/livy">release dist</a> (removing the rc# from the folder name).
     <ol>
       <li>Example steps
-        <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>svn co https://dist.apache.org/repos/dist/dev/incubator/livy/
-<span class="gp">$ </span><span class="nb">export </span><span class="nv">SVN_EDITOR</span><span class="o">=</span>vim
-<span class="gp">$ </span>svn mv https://dist.apache.org/repos/dist/dev/incubator/livy/0.5.0-incubating-rc2/ https://dist.apache.org/repos/dist/release/incubator/livy/0.5.0-incubating/
-</code></pre>
-        </div>
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>svn co https://dist.apache.org/repos/dist/dev/incubator/livy/
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">SVN_EDITOR</span><span class="o">=</span>vim
+<span class="nv">$ </span>svn <span class="nb">mv </span>https://dist.apache.org/repos/dist/dev/incubator/livy/0.5.0-incubating-rc2/ https://dist.apache.org/repos/dist/release/incubator/livy/0.5.0-incubating/
+</code></pre></div>        </div>
       </li>
       <li>If you updated the KEYS file during this release make sure you also copy that as well.</li>
     </ol>
   </li>
   <li>Checkout the rc git tag and recommit it without the rc# (Example below)
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git tag -a v0.5.0-incubating -m <span class="s2">"Apache Livy 0.5.0-incubating"</span>
-<span class="gp">$ </span>git push --delete apache v0.5.0-incubating-rc1
-</code></pre>
-    </div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git tag <span class="nt">-a</span> v0.5.0-incubating <span class="nt">-m</span> <span class="s2">"Apache Livy 0.5.0-incubating"</span>
+<span class="nv">$ </span>git push <span class="nt">--delete</span> apache v0.5.0-incubating-rc1
+</code></pre></div>    </div>
   </li>
   <li>Announce the release to the Incubator general, Livy dev, and Livy user mailing lists 
 (<a href="Incubator general, Livy dev and Livy user">Example Email</a>), if you want you can complete the website update step below to include links in the email.</li>
@@ -261,7 +259,7 @@ and click the “release” button at the top of the page to release the new Liv
 
       <hr>
       <footer>
-        <!-- <p>&copy; 2020 </p>-->
+        <!-- <p>&copy; 2021 </p>-->
         <footer class="site-footer">
     <div class="wrapper">
         <div class="footer-col-wrapper">

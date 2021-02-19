@@ -165,16 +165,16 @@
 <a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a>. Livy requires at least Spark 1.6 and supports both Scala 2.10 and 2.11
 builds of Spark. To run Livy with local sessions, first export these variables:</p>
 
-<p><code class="highlighter-rouge">export SPARK_HOME=/usr/lib/spark</code></p>
+<p><code class="language-plaintext highlighter-rouge">export SPARK_HOME=/usr/lib/spark</code></p>
 
-<p><code class="highlighter-rouge">export HADOOP_CONF_DIR=/etc/hadoop/conf</code></p>
+<p><code class="language-plaintext highlighter-rouge">export HADOOP_CONF_DIR=/etc/hadoop/conf</code></p>
 
 <p>Then start the server with:</p>
 
-<p><code class="highlighter-rouge">./bin/livy-server start</code></p>
+<p><code class="language-plaintext highlighter-rouge">./bin/livy-server start</code></p>
 
-<p>Livy uses the Spark configuration under <code class="highlighter-rouge">SPARK_HOME</code> by default. You can override the Spark configuration by setting the
-<code class="highlighter-rouge">SPARK_CONF_DIR</code> environment variable before starting Livy.</p>
+<p>Livy uses the Spark configuration under <code class="language-plaintext highlighter-rouge">SPARK_HOME</code> by default. You can override the Spark configuration by setting the
+<code class="language-plaintext highlighter-rouge">SPARK_CONF_DIR</code> environment variable before starting Livy.</p>
 
 <p>It is strongly recommended to configure Spark to submit applications in YARN cluster mode. That makes sure that user
 sessions have their resources properly accounted for in the YARN cluster, and that the host running the Livy server
@@ -182,7 +182,7 @@ doesn’t become overloaded when multiple user sessions are running.</p>
 
 <h3 id="3-configure-livy">3. Configure Livy</h3>
 <p>Livy uses a few configuration files under the configuration directory, which by default is the conf directory under the
-Livy installation. An alternative configuration directory can be provided by setting the <code class="highlighter-rouge">LIVY_CONF_DIR</code> environment
+Livy installation. An alternative configuration directory can be provided by setting the <code class="language-plaintext highlighter-rouge">LIVY_CONF_DIR</code> environment
 variable when starting Livy.</p>
 
 <p>The configuration files used by Livy are:</p>
@@ -199,7 +199,7 @@ The default configuration template will print log messages to stderr.</li>
 <h3 id="4-start-using-livy">4. Start using Livy</h3>
 
 <p>Once the Livy server is running, you can connect to it on port 8998 (this can be changed with the 
-<code class="highlighter-rouge">livy.server.port</code> config option). Some examples to get started are provided <a href="/examples">here</a>, 
+<code class="language-plaintext highlighter-rouge">livy.server.port</code> config option). Some examples to get started are provided <a href="/examples">here</a>, 
 or you can check out the API documentation:</p>
 
 <ul>
@@ -213,7 +213,7 @@ or you can check out the API documentation:</p>
 
       <hr>
       <footer>
-        <!-- <p>&copy; 2020 </p>-->
+        <!-- <p>&copy; 2021 </p>-->
         <footer class="site-footer">
     <div class="wrapper">
         <div class="footer-col-wrapper">
