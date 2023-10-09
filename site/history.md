@@ -46,7 +46,7 @@ New features
 * [<a href='https://issues.apache.org/jira/browse/LIVY-969'>LIVY-969</a>]
   New Docker-based integration and debugging environments
 
-* Full release details can be found [here](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12321434&version=12346643).
+* Full release details can be found [in JIRA](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12321434&version=12346643).
 
 ## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.7.0-incubating">0.7.0-incubating</a> / 2020-02-02
 {: #v0-7-0-incubating}
@@ -63,7 +63,7 @@ New features
 * [<a href="https://issues.apache.org/jira/browse/LIVY-678">LIVY-678</a>]
   Add LDAP authorization support for REST, JDBC interface.
 
-* With various bugs fixed, details can be checked [<a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12321434&version=12346643">in JIRA</a>].
+* With various bugs fixed, details can be checked [<a href="https://issues.apache.org/jira/projects/LIVY/versions/12345179">here</a>].
 
 
 ## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.6.0-incubating">0.6.0-incubating</a> / 2019-04-01
