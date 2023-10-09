@@ -32,6 +32,22 @@ For a full list of releases, see
 Downloads are available on the
 [downloads page]({{ site.baseurl }}/download).
 
+## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.8.0-incubating">0.8.0-incubating</a> / 2023-10-10
+{: #v0-8-0-incubating}
+
+New features
+
+* [<a href='https://issues.apache.org/jira/browse/LIVY-423'>LIVY-423</a>]
+  Adding Scala 2.12 support
+
+* [<a href='https://issues.apache.org/jira/browse/LIVY-970'>LIVY-970</a>]
+  Ordering and pagination support in GET /statement request
+
+* [<a href='https://issues.apache.org/jira/browse/LIVY-969'>LIVY-969</a>]
+  New Docker-based integration and debugging environments
+
+* Full release details can be found [here](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12321434&version=12346643).
+
 ## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.7.0-incubating">0.7.0-incubating</a> / 2020-02-02
 {: #v0-7-0-incubating}
 
@@ -47,7 +63,7 @@ New features
 * [<a href="https://issues.apache.org/jira/browse/LIVY-678">LIVY-678</a>]
   Add LDAP authorization support for REST, JDBC interface.
 
-* With various bugs fixed, details can be checked [<a href="https://issues.apache.org/jira/projects/LIVY/versions/12345179">here</a>].
+* With various bugs fixed, details can be checked [<a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12321434&version=12346643">in JIRA</a>].
 
 
 ## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.6.0-incubating">0.6.0-incubating</a> / 2019-04-01
