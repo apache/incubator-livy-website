@@ -41,10 +41,16 @@ limitations under the License.
     </thead>
     <tbody>
         <tr>
-            <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (zip)</td>
-            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-bin.zip">zip</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-bin.zip.sha512">SHA-512</a></td>
-            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-bin.zip.asc">ASC</a></td>
+            <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (Scala 2.11 zip)</td>
+            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.11-bin.zip">zip</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.11-bin.zip.sha512">SHA-512</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.11-bin.zip.asc">ASC</a></td>
+        </tr>
+        <tr>
+            <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (Scala 2.12 zip)</td>
+            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.12-bin.zip">zip</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.12-bin.zip.sha512">SHA-512</a></td>
+            <td><a href="https://www.apache.org/dist/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.12-bin.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (source zip)</td>
