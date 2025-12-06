@@ -128,6 +128,12 @@
                           
                           <li><a href="http://www.apache.org/security/" target="_blank">Security</a></li>
                           
+                          
+                          <li><a href="https://events.apache.org/" target="_blank">Events</a></li>
+                          
+                          
+                          <li><a href="https://privacy.apache.org/policies/privacy-policy-public.html" target="_blank">Privacy</a></li>
+                          
                       </ul>
                       
                   </li>
@@ -161,64 +167,59 @@
 
 <p>Here’s a step-by-step example of interacting with Livy in Python with the
 <a href="http://docs.python-requests.org/en/latest/">Requests</a> library. By default Livy runs on port 8998 (which can be changed
-with the <code class="highlighter-rouge">livy.server.port</code> config option). We’ll start off with a Spark session that takes Scala code:</p>
+with the <code class="language-plaintext highlighter-rouge">livy.server.port</code> config option). We’ll start off with a Spark session that takes Scala code:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sudo pip install requests
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pip <span class="nb">install </span>requests
+</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">pprint</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">textwrap</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span><span class="p">,</span> <span class="n">pprint</span><span class="p">,</span> <span class="n">requests</span><span class="p">,</span> <span class="n">textwrap</span>
 <span class="n">host</span> <span class="o">=</span> <span class="s">'http://localhost:8998'</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'kind'</span><span class="p">:</span> <span class="s">'spark'</span><span class="p">}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s">'/sessions'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s">'/sessions'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
 
-<span class="p">{</span><span class="s">u'state'</span><span class="p">:</span> <span class="s">u'starting'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">u'kind'</span><span class="p">:</span> <span class="s">u'spark'</span><span class="p">}</span>
-</code></pre>
-</div>
+<span class="p">{</span><span class="sa">u</span><span class="s">'state'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'starting'</span><span class="p">,</span> <span class="sa">u</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">u</span><span class="s">'kind'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'spark'</span><span class="p">}</span>
+</code></pre></div></div>
 
 <p>Once the session has completed starting up, it transitions to the idle state:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">session_url</span> <span class="o">=</span> <span class="n">host</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">session_url</span> <span class="o">=</span> <span class="n">host</span> <span class="o">+</span> <span class="n">r</span><span class="p">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">session_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
 
-<span class="p">{</span><span class="s">u'state'</span><span class="p">:</span> <span class="s">u'idle'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">u'kind'</span><span class="p">:</span> <span class="s">u'spark'</span><span class="p">}</span>
-</code></pre>
-</div>
+<span class="p">{</span><span class="sa">u</span><span class="s">'state'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'idle'</span><span class="p">,</span> <span class="sa">u</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">u</span><span class="s">'kind'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'spark'</span><span class="p">}</span>
+</code></pre></div></div>
 
 <p>Now we can execute Scala by passing in a simple JSON command:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">statements_url</span> <span class="o">=</span> <span class="n">session_url</span> <span class="o">+</span> <span class="s">'/statements'</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">statements_url</span> <span class="o">=</span> <span class="n">session_url</span> <span class="o">+</span> <span class="s">'/statements'</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'code'</span><span class="p">:</span> <span class="s">'1 + 1'</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
 
-<span class="p">{</span><span class="s">u'output'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'running'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
-</code></pre>
-</div>
+<span class="p">{</span><span class="sa">u</span><span class="s">'output'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="sa">u</span><span class="s">'state'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'running'</span><span class="p">,</span> <span class="sa">u</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</code></pre></div></div>
 
 <p>If a statement takes longer than a few milliseconds to execute, Livy returns
 early and provides a statement URL that can be polled until it is complete:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">statement_url</span> <span class="o">=</span> <span class="n">host</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">statement_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">statement_url</span> <span class="o">=</span> <span class="n">host</span> <span class="o">+</span> <span class="n">r</span><span class="p">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">statement_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
-<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s">u'output'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'text/plain'</span><span class="p">:</span> <span class="s">u'res0: Int = 2'</span><span class="p">},</span>
-              <span class="s">u'execution_count'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-              <span class="s">u'status'</span><span class="p">:</span> <span class="s">u'ok'</span><span class="p">},</span>
-  <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'available'</span><span class="p">}</span>
-</code></pre>
-</div>
+<span class="p">{</span><span class="sa">u</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="sa">u</span><span class="s">'output'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s">'data'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s">'text/plain'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'res0: Int = 2'</span><span class="p">},</span>
+              <span class="sa">u</span><span class="s">'execution_count'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+              <span class="sa">u</span><span class="s">'status'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'ok'</span><span class="p">},</span>
+  <span class="sa">u</span><span class="s">'state'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'available'</span><span class="p">}</span>
+</code></pre></div></div>
 
 <p>That was a pretty simple example. More interesting is using Spark to estimate
 Pi. This is from the <a href="https://spark.apache.org/examples.html">Spark Examples</a>:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'code'</span><span class="p">:</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">"""
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'code'</span><span class="p">:</span> <span class="n">textwrap</span><span class="p">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">"""
     val NUM_SAMPLES = 100000;
     val count = sc.parallelize(1 to NUM_SAMPLES).map { i =&gt;
       val x = Math.random();
@@ -229,46 +230,43 @@ Pi. This is from the <a href="https://spark.apache.org/examples.html">Spark Exam
     """</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
-<span class="n">statement_url</span> <span class="o">=</span> <span class="n">host</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">statement_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="n">statement_url</span> <span class="o">=</span> <span class="n">host</span> <span class="o">+</span> <span class="n">r</span><span class="p">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'location'</span><span class="p">]</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">statement_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
-<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
- <span class="s">u'output'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'text/plain'</span><span class="p">:</span> <span class="s">u'Pi is roughly 3.14004</span><span class="se">\n</span><span class="s">NUM_SAMPLES: Int = 100000</span><span class="se">\n</span><span class="s">count: Int = 78501'</span><span class="p">},</span>
-             <span class="s">u'execution_count'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-             <span class="s">u'status'</span><span class="p">:</span> <span class="s">u'ok'</span><span class="p">},</span>
- <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'available'</span><span class="p">}</span>
-</code></pre>
-</div>
+<span class="p">{</span><span class="sa">u</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s">'output'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s">'data'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s">'text/plain'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'Pi is roughly 3.14004</span><span class="se">\n</span><span class="s">NUM_SAMPLES: Int = 100000</span><span class="se">\n</span><span class="s">count: Int = 78501'</span><span class="p">},</span>
+             <span class="sa">u</span><span class="s">'execution_count'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+             <span class="sa">u</span><span class="s">'status'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'ok'</span><span class="p">},</span>
+ <span class="sa">u</span><span class="s">'state'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'available'</span><span class="p">}</span>
+</code></pre></div></div>
 
 <p>Finally, close the session:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">session_url</span> <span class="o">=</span> <span class="s">'http://localhost:8998/sessions/0'</span>
-<span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">session_url</span> <span class="o">=</span> <span class="s">'http://localhost:8998/sessions/0'</span>
+<span class="n">requests</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">session_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="o">&lt;</span><span class="n">Response</span> <span class="p">[</span><span class="mi">204</span><span class="p">]</span><span class="o">&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="pyspark-example">PySpark Example</h3>
 
 <p>PySpark has the same API, just with a different initial request:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'kind'</span><span class="p">:</span> <span class="s">'pyspark'</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s">'/sessions'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'kind'</span><span class="p">:</span> <span class="s">'pyspark'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s">'/sessions'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
 
-<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'idle'</span><span class="p">}</span>
-</code></pre>
-</div>
+<span class="p">{</span><span class="sa">u</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sa">u</span><span class="s">'state'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'idle'</span><span class="p">}</span>
+</code></pre></div></div>
 
 <p>The Pi example from before then can be run as:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'code'</span><span class="p">:</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">"""
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'code'</span><span class="p">:</span> <span class="n">textwrap</span><span class="p">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">"""
     import random
     NUM_SAMPLES = 100000
     def sample(p):
@@ -276,37 +274,35 @@ Pi. This is from the <a href="https://spark.apache.org/examples.html">Spark Exam
       return 1 if x*x + y*y &lt; 1 else 0
 
     count = sc.parallelize(xrange(0, NUM_SAMPLES)).map(sample).reduce(lambda a, b: a + b)
-    print "Pi is roughly </span><span class="si">%</span><span class="s">f" </span><span class="si">% </span><span class="s">(4.0 * count / NUM_SAMPLES)
+    print "Pi is roughly %f" % (4.0 * count / NUM_SAMPLES)
     """</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
-<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-<span class="s">u'output'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'text/plain'</span><span class="p">:</span> <span class="s">u'Pi is roughly 3.136000'</span><span class="p">},</span>
-            <span class="s">u'execution_count'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-            <span class="s">u'status'</span><span class="p">:</span> <span class="s">u'ok'</span><span class="p">},</span>
-<span class="s">u'state'</span><span class="p">:</span> <span class="s">u'running'</span><span class="p">}</span>
-</code></pre>
-</div>
+<span class="p">{</span><span class="sa">u</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+<span class="sa">u</span><span class="s">'output'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s">'data'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s">'text/plain'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'Pi is roughly 3.136000'</span><span class="p">},</span>
+            <span class="sa">u</span><span class="s">'execution_count'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+            <span class="sa">u</span><span class="s">'status'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'ok'</span><span class="p">},</span>
+<span class="sa">u</span><span class="s">'state'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'running'</span><span class="p">}</span>
+</code></pre></div></div>
 
 <h3 id="sparkr-example">SparkR Example</h3>
 
 <p>SparkR has the same API:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'kind'</span><span class="p">:</span> <span class="s">'sparkr'</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s">'/sessions'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'kind'</span><span class="p">:</span> <span class="s">'sparkr'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s">'/sessions'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
 
-<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'idle'</span><span class="p">}</span>
-</code></pre>
-</div>
+<span class="p">{</span><span class="sa">u</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sa">u</span><span class="s">'state'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'idle'</span><span class="p">}</span>
+</code></pre></div></div>
 
 <p>The Pi example from before then can be run as:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'code'</span><span class="p">:</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">"""
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'code'</span><span class="p">:</span> <span class="n">textwrap</span><span class="p">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">"""
     n &lt;- 100000
     piFunc &lt;- function(elem) {
       rands &lt;- runif(n = 2, min = -1, max = 1)
@@ -326,16 +322,15 @@ Pi. This is from the <a href="https://spark.apache.org/examples.html">Spark Exam
     """</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">statements_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 
-<span class="p">{</span><span class="s">u'id'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
- <span class="s">u'output'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'data'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'text/plain'</span><span class="p">:</span> <span class="s">u'Pi is roughly 3.136000'</span><span class="p">},</span>
-             <span class="s">u'execution_count'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-             <span class="s">u'status'</span><span class="p">:</span> <span class="s">u'ok'</span><span class="p">},</span>
- <span class="s">u'state'</span><span class="p">:</span> <span class="s">u'running'</span><span class="p">}</span>
-</code></pre>
-</div>
+<span class="p">{</span><span class="sa">u</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s">'output'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s">'data'</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s">'text/plain'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'Pi is roughly 3.136000'</span><span class="p">},</span>
+             <span class="sa">u</span><span class="s">'execution_count'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+             <span class="sa">u</span><span class="s">'status'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'ok'</span><span class="p">},</span>
+ <span class="sa">u</span><span class="s">'state'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'running'</span><span class="p">}</span>
+</code></pre></div></div>
 
   </div>
 </div>
@@ -343,7 +338,7 @@ Pi. This is from the <a href="https://spark.apache.org/examples.html">Spark Exam
 
       <hr>
       <footer>
-        <!-- <p>&copy; 2024 </p>-->
+        <!-- <p>&copy; 2025 </p>-->
         <footer class="site-footer">
     <div class="wrapper">
         <div class="footer-col-wrapper">
