@@ -59,6 +59,7 @@ topnav:
     url: http://www.apache.org/foundation/thanks.html
   - title: Security
     url: http://www.apache.org/security/
-# TODO: Create Privacy Policy Page
-#  - title: Privacy Policy
-#    url: /privacy-policy
+  - title: Events
+    url: https://events.apache.org/
+  - title: Privacy
+    url: https://privacy.apache.org/policies/privacy-policy-public.html
