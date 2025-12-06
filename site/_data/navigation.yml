@@ -39,6 +39,9 @@ topnav:
     url: /community-members
   - title: Third-Party Projects
     url: /third-party-projects
+  - title: Release Process
+    url: /release-process
+
   - title: Issue Tracker
     url: https://issues.apache.org/jira/browse/LIVY
   - title: Source Code
