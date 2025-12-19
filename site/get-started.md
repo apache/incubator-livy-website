@@ -31,7 +31,7 @@ Download Livy packages from [here]({{ site.baseurl }}/download).
 
 ### 2. Run Livy
 To run the Livy server, you will also need an Apache Spark installation. You can get Spark releases at
-<https://spark.apache.org/downloads.html>. Livy requires at least Spark 1.6 and supports Scala 2.11 and 2.12
+<https://spark.apache.org/downloads.html>. Livy requires Spark 3.0 or higher and supports Scala 2.12
 builds of Spark. To run Livy with local sessions, first export these variables:
 
 `export SPARK_HOME=/usr/lib/spark`
@@ -65,8 +65,8 @@ The default configuration template will print log messages to stderr.
 
 ### 4. Start using Livy
 
-Once the Livy server is running, you can connect to it on port 8998 (this can be changed with the 
-`livy.server.port` config option). Some examples to get started are provided [here]({{ site.baseurl }}/examples), 
+Once the Livy server is running, you can connect to it on port 8998 (this can be changed with the
+`livy.server.port` config option). Some examples to get started are provided [here]({{ site.baseurl }}/examples),
 or you can check out the API documentation:
 
 * [REST API]({{ site.baseurl }}/docs/latest/rest-api.html)
