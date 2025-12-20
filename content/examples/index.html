@@ -276,8 +276,8 @@ Pi. This is from the <a href="https://spark.apache.org/examples.html">Spark Exam
       x, y = random.random(), random.random()
       return 1 if x*x + y*y &lt; 1 else 0
 
-    count = sc.parallelize(xrange(0, NUM_SAMPLES)).map(sample).reduce(lambda a, b: a + b)
-    print "Pi is roughly %f" % (4.0 * count / NUM_SAMPLES)
+    count = sc.parallelize(range(0, NUM_SAMPLES)).map(sample).reduce(lambda a, b: a + b)
+    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
     """</span><span class="p">)</span>
 <span class="p">}</span>
 
