@@ -32,7 +32,27 @@ For a full list of releases, see
 Downloads are available on the
 [downloads page]({{ site.baseurl }}/download).
 
+## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.9.0-incubating">0.9.0-incubating</a> / 2025-02-08
+{: #v0-9-0-incubating}
+
+New features
+
+* [<a href='https://issues.apache.org/jira/browse/LIVY-702'>LIVY-702</a>]
+  Submit Spark apps to Kubernetes
+
+* [<a href='https://issues.apache.org/jira/browse/LIVY-785'>LIVY-785</a>]
+  Enable adding security related HTTP headers
+
+* [<a href='https://issues.apache.org/jira/browse/LIVY-1010'>LIVY-1010</a>]
+  Add support for Spark 3.5.6
+
+* [<a href='https://issues.apache.org/jira/browse/LIVY-1017'>LIVY-1017</a>]
+  Support Java 17, set up JDK 17 based tests
+
+* Full release details can be found [in JIRA](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12352535&styleName=Html&projectId=12321434).
+
 ## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.8.0-incubating">0.8.0-incubating</a> / 2023-10-10
+
 {: #v0-8-0-incubating}
 
 New features
