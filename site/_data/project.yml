@@ -24,7 +24,7 @@ incubator_slash_name: incubator/livy
 description: A REST Service for Apache Spark
 
 download: download
-latest_release: 0.8.0-incubating
+latest_release: 0.9.0-incubating
 
 dev_list: dev@livy.incubator.apache.org
 dev_list_subscribe: dev-subscribe@livy.incubator.apache.org
