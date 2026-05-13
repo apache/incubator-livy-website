@@ -42,21 +42,21 @@ limitations under the License.
     <tbody>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (Scala 2.11 zip)</td>
-            <td><a href="https://dlcdn.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.11-bin.zip">zip</a></td>
-            <td><a href="https://dlcdn.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.11-bin.zip.sha512">SHA-512</a></td>
-            <td><a href="https://dlcdn.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.11-bin.zip.asc">ASC</a></td>
+            <td><a href="https://downloads.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.11-bin.zip">zip</a></td>
+            <td><a href="https://downloads.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.11-bin.zip.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.11-bin.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (Scala 2.12 zip)</td>
-            <td><a href="https://dlcdn.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.12-bin.zip">zip</a></td>
-            <td><a href="https://dlcdn.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.12-bin.zip.sha512">SHA-512</a></td>
-            <td><a href="https://dlcdn.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.12-bin.zip.asc">ASC</a></td>
+            <td><a href="https://downloads.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.12-bin.zip">zip</a></td>
+            <td><a href="https://downloads.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.12-bin.zip.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}_2.12-bin.zip.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (source zip)</td>
-            <td><a href="https://dlcdn.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-src.zip">zip</a></td>
-            <td><a href="https://dlcdn.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-src.zip.sha512">SHA-512</a></td>
-            <td><a href="https://dlcdn.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-src.zip.asc">ASC</a></td>
+            <td><a href="https://downloads.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-src.zip">zip</a></td>
+            <td><a href="https://downloads.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-src.zip.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/incubator/{{site.data.project.unix_name}}/{{site.data.project.latest_release}}/{{site.data.project.pkg_name}}-{{site.data.project.latest_release}}-src.zip.asc">ASC</a></td>
         </tr>
     </tbody>
 </table>
@@ -75,7 +75,7 @@ Instructions for checking hashes and signatures is indicated on the [Verifying A
 
 Download the desired archive, and [verify](http://www.apache.org/dyn/closer.cgi#verify)
 using the corresponding *pgp* signature (using the public keys available in
-[KEYS](https://dlcdn.apache.org/incubator/{{ site.data.project.unix_name }}/KEYS)).
+[KEYS](https://downloads.apache.org/incubator/{{ site.data.project.unix_name }}/KEYS)).
 If you cannot do that, the *sha512* hash file may be used to check that the
 download has completed OK.
 
@@ -86,5 +86,5 @@ If a download from a mirror fails, retry, and the second download will likely
 succeed.
 
 For security, hash and signature files are always hosted at
-[Apache](https://dlcdn.apache.org/incubator/{{ site.data.project.unix_name }}/).
+[Apache](https://downloads.apache.org/incubator/{{ site.data.project.unix_name }}/).
 
