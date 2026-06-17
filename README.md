@@ -17,9 +17,9 @@ limitations under the License.
 {% endcomment %}
 -->
 
-# Apache Livy (Incubating) Website
+# Apache Livy Website
 
-The Apache Livy (Incubating) website was forked from the
+The Apache Livy website was forked from the
 [Apache Website Template](https://github.com/apache/apache-website-template).
 
 This website is generated using [Jekyll](https://jekyllrb.com/).
@@ -68,7 +68,7 @@ This assumes an upstream name of apache and committer privileges.
 ```
 
 Within a few minutes, gitpubsub should kick in and you'll be able to see the results at
-[livy.incubator.apache.org](https://livy.incubator.apache.org/).
+[livy.apache.org](https://livy.apache.org/).
 
 ## Adding contributors
 

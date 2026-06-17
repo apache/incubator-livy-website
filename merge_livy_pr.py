@@ -19,13 +19,13 @@
 
 # Utility for creating well-formed pull request merges and pushing them to Apache.
 #
-# This utility assumes you already have local a incubator-livy-website git folder and that you
-# have added remotes corresponding to both (i) the github apache incubator-livy-website
+# This utility assumes you already have local a livy-website git folder and that you
+# have added remotes corresponding to both (i) the github apache livy-website
 # mirror and (ii) the apache git repo.
 #
-# 1. Adding github apache incubator-livy-website mirror remote to your local repo with name "apache-github"
+# 1. Adding github apache livy-website mirror remote to your local repo with name "apache-github"
 #    (for example) using "git remote add apache-github ...".
-# 2. Adding apache incubator-livy-website remote to your local repo with name "apache" (for example) using
+# 2. Adding apache livy-website remote to your local repo with name "apache" (for example) using
 #    "git remote add apache ..."
 # 3. Invoke this script from LIVY_WEBSITE_HOME (./merge_livy_pr.py) and follow the prompted steps.
 # 4. If you want to handle the associated JIRA, JIRA_USERNAME and JIRA_PASSWORD should be set.
@@ -47,7 +47,7 @@ try:
 except ImportError:
     JIRA_IMPORTED = False
 
-# Location of your incubator-livy-website git development area
+# Location of your livy-website git development area
 LIVY_HOME = os.environ.get("LIVY_WEBSITE_HOME", os.getcwd())
 # Remote name which points to the Gihub site
 PR_REMOTE_NAME = os.environ.get("PR_REMOTE_NAME", "apache-github")
@@ -64,8 +64,8 @@ JIRA_PASSWORD = os.environ.get("JIRA_PASSWORD", "")
 GITHUB_OAUTH_KEY = os.environ.get("GITHUB_OAUTH_KEY")
 
 
-GITHUB_BASE = "https://github.com/apache/incubator-livy-website/pull"
-GITHUB_API_BASE = "https://api.github.com/repos/apache/incubator-livy-website"
+GITHUB_BASE = "https://github.com/apache/livy-website/pull"
+GITHUB_API_BASE = "https://api.github.com/repos/apache/livy-website"
 JIRA_BASE = "https://issues.apache.org/jira/browse"
 JIRA_API_BASE = "https://issues.apache.org/jira"
 # Prefix added to temporary branches
@@ -155,7 +155,7 @@ def merge_pr(pr_num, target_ref, title, body, pr_repo_desc):
     merge_message_flags += ["-m", title]
     if body is not None:
         # We remove @ symbols from the body to avoid triggering e-mails
-        # to people every time someone creates a public fork of incubator-livy.
+        # to people every time someone creates a public fork of livy.
         merge_message_flags += ["-m", body.replace("@", "")]
 
     authors = "\n".join(["Author: %s" % a for a in distinct_authors])
