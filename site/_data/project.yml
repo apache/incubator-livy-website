@@ -19,6 +19,7 @@ name: Apache Livy
 short_name: Livy
 unix_name: livy
 pkg_name: apache-livy
+repo_name: livy
 incubator_name: incubator-livy
 incubator_slash_name: incubator/livy
 description: A REST Service for Apache Spark
