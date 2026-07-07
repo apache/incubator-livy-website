@@ -186,7 +186,7 @@
 
 <ul>
   <li><a href="http://www.apache.org/dev/#releases">Apache Software Release Documentation</a></li>
-  <li><a href="http://incubator.apache.org/policy/incubation.html#releases">Apache Incubator Podling Release Policies</a></li>
+  <li><a href="https://infra.apache.org/release-publishing.html">Apache Release Creation Process</a></li>
   <li><a href="https://www.apache.org/dev/release-signing.html">Apache Guide on Signing Releases</a></li>
   <li><a href="https://spark.apache.org/release-process.html">The Apache Spark Release Guide</a> (for comparison)</li>
 </ul>
@@ -196,11 +196,11 @@
 <ol>
   <li>Create new branch (from master if a major/minor version, or branch-X.x for a maintenance version for version X.x) then push it to apache.</li>
   <li>Update the master branch with to the next version if this is a major/minor release.
-(<a href="https://github.com/apache/incubator-livy/commit/99c385d6436120e3767393ba76dcaa982d7b9929">Example commit</a>)</li>
+(<a href="https://github.com/apache/livy/commit/99c385d6436120e3767393ba76dcaa982d7b9929">Example commit</a>)</li>
   <li>Remove SNAPSHOT from the version on branch then cut rc1 tag.
-(<a href="https://github.com/apache/incubator-livy/commit/b88223a6416ca5419257c92e81c394269a008729">Example commit</a>)</li>
+(<a href="https://github.com/apache/livy/commit/b88223a6416ca5419257c92e81c394269a008729">Example commit</a>)</li>
   <li>After cutting the rc1 tag you can then update the branch with the next maintenance version. (Note: If you do this prior to release any changes between rc’s will be individually cherry-picked)
-(<a href="https://github.com/apache/incubator-livy/commit/dd9a78245e5f67b2c9a6cd62f7bbda2175ac0bc9">Example commit</a>)</li>
+(<a href="https://github.com/apache/livy/commit/dd9a78245e5f67b2c9a6cd62f7bbda2175ac0bc9">Example commit</a>)</li>
 </ol>
 
 <h3 id="create-and-publish-release-distros-and-artifacts-to-staging-locations">Create and publish release distros and artifacts to staging locations</h3>
@@ -212,7 +212,7 @@
     <ol>
       <li>Set env variables as described in <code class="language-plaintext highlighter-rouge">dev/release-build.sh</code> (or utilize the script’s prompts).</li>
       <li>Run <code class="language-plaintext highlighter-rouge">dev/release-build.sh package</code> (Note: You may need to run <code class="language-plaintext highlighter-rouge">GPG_TTY=$(tty); export GPG_TTY</code> for the script to work).</li>
-      <li>Double check the distros has been uploaded to the <a href="https://dist.apache.org/repos/dist/dev/incubator/livy">dev dist</a>.</li>
+      <li>Double check the distros has been uploaded to the <a href="https://dist.apache.org/repos/dist/dev/livy">dev dist</a>.</li>
     </ol>
   </li>
   <li>Use <code class="language-plaintext highlighter-rouge">dev/release-build.sh publish-release</code> to push the release artifacts to the apache staging repo
@@ -223,11 +223,10 @@
 <h3 id="call-a-vote-to-authorize-release">Call a vote to authorize release</h3>
 
 <ol>
-  <li>Email the Livy dev mailing list to call for vote on the release candidate and make sure to note that if it passes it will go to an official vote on the Incubator general mailing list.
-(<a href="https://www.mail-archive.com/dev@livy.incubator.apache.org/msg00294.html">Example email</a>)</li>
-  <li>If the vote passes email the Incubator general list to call for a PMC vote. 
-(<a href="https://www.mail-archive.com/general@incubator.apache.org/msg62366.html">Example email</a>).
-If the vote fails, address the issues raised and cut a new rc with the required fixes.</li>
+  <li>Email the Livy dev mailing list to call for vote on the release candidate.
+(<a href="https://www.mail-archive.com/dev@livy.apache.org/msg00245.html">Example email</a>)</li>
+  <li>If the vote fails, address the issues raised and cut a new rc with the required fixes.</li>
+  <li>Once the vote is done, send out a summary email with the totals, with a subject containing <code class="language-plaintext highlighter-rouge">[RESULT]</code>.</li>
 </ol>
 
 <h3 id="publish-the-release-once-a-vote-passes">Publish the release (once a vote passes)</h3>
@@ -235,25 +234,25 @@ If the vote fails, address the issues raised and cut a new rc with the required 
 <ol>
   <li>Go to the <a href="https://repository.apache.org/#stagingRepositories">staging repo</a>, select the livy repo from the <code class="language-plaintext highlighter-rouge">publish-release</code> step above 
 and click the “release” button at the top of the page to release the new Livy version artifacts.</li>
-  <li>Move the contents of the <a href="https://dist.apache.org/repos/dist/dev/incubator/livy">dev dist</a> to the 
-<a href="https://dist.apache.org/repos/dist/release/incubator/livy">release dist</a> (removing the rc# from the folder name).
+  <li>Move the contents of the <a href="https://dist.apache.org/repos/dist/dev/livy">dev dist</a> to the
+<a href="https://dist.apache.org/repos/dist/release/livy">release dist</a> (removing the rc# from the folder name).
     <ol>
       <li>Example steps
-        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>svn co https://dist.apache.org/repos/dist/dev/incubator/livy/
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>svn co https://dist.apache.org/repos/dist/dev/livy/
 <span class="nv">$ </span><span class="nb">export </span><span class="nv">SVN_EDITOR</span><span class="o">=</span>vim
-<span class="nv">$ </span>svn <span class="nb">mv </span>https://dist.apache.org/repos/dist/dev/incubator/livy/0.5.0-incubating-rc2/ https://dist.apache.org/repos/dist/release/incubator/livy/0.5.0-incubating/
+<span class="nv">$ </span>svn <span class="nb">mv </span>https://dist.apache.org/repos/dist/dev/livy/1.0.0-rc2/ https://dist.apache.org/repos/dist/release/livy/1.0.0/
 </code></pre></div>        </div>
       </li>
       <li>If you updated the KEYS file during this release make sure you also copy that as well.</li>
     </ol>
   </li>
   <li>Checkout the rc git tag and recommit it without the rc# (Example below)
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git tag <span class="nt">-a</span> v0.5.0-incubating <span class="nt">-m</span> <span class="s2">"Apache Livy 0.5.0-incubating"</span>
-<span class="nv">$ </span>git push <span class="nt">--delete</span> apache v0.5.0-incubating-rc1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git tag <span class="nt">-a</span> v1.0.0 <span class="nt">-m</span> <span class="s2">"Apache Livy 1.0.0"</span>
+<span class="nv">$ </span>git push <span class="nt">--delete</span> apache v1.0.0-rc1
 </code></pre></div>    </div>
   </li>
-  <li>Announce the release to the Incubator general, Livy dev, and Livy user mailing lists 
-(<a href="Incubator general, Livy dev and Livy user">Example Email</a>), if you want you can complete the website update step below to include links in the email.</li>
+  <li>Announce the release to the Livy dev, and Livy user mailing lists
+(<a href="https://www.mail-archive.com/dev@livy.apache.org/msg00263.html">Example Email</a>), if you want you can complete the website update step below to include links in the email.</li>
 </ol>
 
 <h3 id="after-the-release-is-complete">After the release is complete</h3>
