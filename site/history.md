@@ -28,11 +28,11 @@ limitations under the License.
 ## {{ site.data.project.name }} Releases
 
 For a full list of releases, see
-<a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases">GitHub</a>.
+<a href="https://github.com/apache/{{ site.data.project.repo_name }}/releases">GitHub</a>.
 Downloads are available on the
 [downloads page]({{ site.baseurl }}/download).
 
-## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.9.0-incubating">0.9.0-incubating</a> / 2025-02-08
+## <a href="https://github.com/apache/{{ site.data.project.repo_name }}/releases/tag/v0.9.0-incubating">0.9.0-incubating</a> / 2026-02-11
 {: #v0-9-0-incubating}
 
 New features
@@ -51,7 +51,7 @@ New features
 
 * Full release details can be found [in JIRA](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12352535&styleName=Html&projectId=12321434).
 
-## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.8.0-incubating">0.8.0-incubating</a> / 2023-10-10
+## <a href="https://github.com/apache/{{ site.data.project.repo_name }}/releases/tag/v0.8.0-incubating">0.8.0-incubating</a> / 2023-10-10
 
 {: #v0-8-0-incubating}
 
@@ -68,7 +68,7 @@ New features
 
 * Full release details can be found [in JIRA](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12321434&version=12346643).
 
-## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.7.0-incubating">0.7.0-incubating</a> / 2020-02-02
+## <a href="https://github.com/apache/{{ site.data.project.repo_name }}/releases/tag/v0.7.0-incubating">0.7.0-incubating</a> / 2020-02-02
 {: #v0-7-0-incubating}
 
 New features
@@ -86,7 +86,7 @@ New features
 * With various bugs fixed, details can be checked [<a href="https://issues.apache.org/jira/projects/LIVY/versions/12345179">here</a>].
 
 
-## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.6.0-incubating">0.6.0-incubating</a> / 2019-04-01
+## <a href="https://github.com/apache/{{ site.data.project.repo_name }}/releases/tag/v0.6.0-incubating">0.6.0-incubating</a> / 2019-04-01
 {: #v0-6-0-incubating}
 
 New features
@@ -105,7 +105,7 @@ New features
   Session naming support.
 
 
-## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.5.0-incubating">0.5.0-incubating</a> / 2018-02-05
+## <a href="https://github.com/apache/{{ site.data.project.repo_name }}/releases/tag/v0.5.0-incubating">0.5.0-incubating</a> / 2018-02-05
 {: #v0-5-0-incubating}
 
 New features
@@ -128,7 +128,7 @@ New features
 * [<a href="https://issues.apache.org/jira/browse/LIVY-397">LIVY-397</a>]
   Support multiple languages in a single Session
 
-## <a href="https://github.com/apache/{{ site.data.project.incubator_name }}/releases/tag/v0.4.0-incubating">0.4.0-incubating</a> / 2017-09-01
+## <a href="https://github.com/apache/{{ site.data.project.repo_name }}/releases/tag/v0.4.0-incubating">0.4.0-incubating</a> / 2017-09-01
 {: #v0-4-0-incubating}
 
 Our first Apache release!
